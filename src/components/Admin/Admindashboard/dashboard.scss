@@ -1,0 +1,63 @@
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: margin-left 0.3s ease;
+}
+
+//when sidebar is open
+.dashboard-layout.sidebar-open {
+  margin-left: 230px;
+}
+
+//when sidebar is closed
+.dashboard-layout.sidebar-closed {
+  margin-left: 70px;
+}
+
+.full-width-row{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-main{
+  display: flex;
+  gap: 20px;
+}
+
+/* Graph box */
+.graph {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Recent bookings table box */
+.recent-bookings-container {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .dashboard-main {
+    flex-direction: column;
+  }
+
+  .graph,
+  .recent-bookings-container {
+    width: 100%;
+    // min-width: 100%;
+  }
+}

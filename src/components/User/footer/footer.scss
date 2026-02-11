@@ -1,0 +1,347 @@
+// .footer {
+//   background: linear-gradient(135deg, #f7faff, #eaf3ff);
+//   padding: 60px 70px;
+//   margin-top: 50px;
+
+//   @media (max-width: 768px) {
+//     padding: 40px 20px;
+//   }
+
+//   /* ---------------- NEWSLETTER ---------------- */
+//   .newsletter {
+//     text-align: center;
+//     margin-bottom: 60px;
+
+//     h2 {
+//       font-size: 2rem;
+//       font-weight: 700;
+//       color: green;
+//     }
+
+//     p {
+//       margin-top: 8px;
+//       color: #555;
+//     }
+
+//     .input-box {
+//       margin-top: 20px;
+//       display: flex;
+//       justify-content: center;
+//       gap: 10px;
+
+//       input {
+//         width: 320px;
+//         padding: 12px 15px;
+//         border-radius: 12px;
+//         border: 1px solid #d0dcec;
+//         font-size: 1rem;
+//       }
+
+//       button {
+//         padding: 12px 25px;
+//         border-radius: 12px;
+//         background: green;
+//         color: #fff;
+//         border: none;
+//         font-weight: 600;
+//         transition: 0.3s;
+
+//         &:hover {
+//           background: rgb(52, 176, 52);
+//         }
+//       }
+
+//       @media (max-width: 480px) {
+//         flex-direction: column;
+
+//         input {
+//           width: 100%;
+//         }
+//       }
+//     }
+//   }
+
+//   /* ---------------- MAIN FOOTER CONTENT ---------------- */
+//   .footer-main {
+//     display: grid;
+//     grid-template-columns: 2fr 1fr 1fr 1fr;
+//     gap: 40px;
+//     margin-bottom: 60px;
+
+//     @media (max-width: 900px) {
+//       grid-template-columns: 1fr 1fr;
+//     }
+
+//     @media (max-width: 600px) {
+//       grid-template-columns: 1fr;
+//       text-align: center;
+//     }
+
+//     .brand {
+//       .logo {
+//         font-size: 2rem;
+//         font-weight: 800;
+//         color: green;
+//       }
+
+//       p {
+//         margin: 10px 0 20px;
+//         color: #444;
+//       }
+
+//       .social {
+//         display: flex;
+//         gap: 12px;
+//         font-size: 1.1rem;
+
+//         svg {
+//           padding: 10px;
+//           background: white;
+//           border-radius: 50%;
+//           box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+//           cursor: pointer;
+//           transition: 0.3s;
+
+//           &:hover {
+//             background: green;
+//             color: white;
+//           }
+//         }
+
+//         @media (max-width: 600px) {
+//           justify-content: center;
+//         }
+//       }
+//     }
+
+//     .footer-col {
+//       h4 {
+//         font-size: 1.2rem;
+//         font-weight: 700;
+//         margin-bottom: 15px;
+//         color: green;
+//       }
+
+//       ul {
+//         list-style: none;
+//         padding: 0;
+
+//         li {
+//           margin-bottom: 10px;
+//           color: #444;
+//           cursor: pointer;
+//           transition: 0.3s;
+
+//           &:hover {
+//             color: #0066ff;
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   /* ---------------- APP SECTION ---------------- */
+//   .app-section {
+//     text-align: center;
+//     margin-bottom: 40px;
+
+//     p {
+//       font-size: 1.2rem;
+//       font-weight: 700;
+//       margin-bottom: 15px;
+//       color: #003d79;
+//     }
+
+//     .store-btns {
+//       display: flex;
+//       justify-content: center;
+//       gap: 20px;
+
+//       img {
+//         width: 150px;
+//         cursor: pointer;
+//         transition: 0.3s;
+
+//         &:hover {
+//           transform: scale(1.05);
+//         }
+//       }
+//     }
+//   }
+
+//   /* ---------------- COPYRIGHT ---------------- */
+//   .copyright {
+//     text-align: center;
+//     margin-top: 30px;
+//     color: #666;
+//     font-size: 0.9rem;
+//   }
+// }
+
+
+
+.footer-container{
+    padding: 40px 70px;
+    background:  linear-gradient(135deg, #f7faff, #eaf3ff);
+    margin-top: 70px;
+    text-align: center;
+
+    @media (max-width: 768px){
+        padding: 40px 20px;
+
+    }
+
+    .newsletter{
+        text-align: center;
+    }
+    h1{
+        background: linear-gradient(to right, #034b03, #18971c, #5fea5f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 30px;
+
+    }
+    p{
+        color: #555;
+        margin: 10px 0 20px;
+    }
+
+    .input-container{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+
+
+        input{
+            width: 330px;
+            padding: 12px 15px;
+            border-radius: 5px;
+            background: #ffffff;
+            font-size: 1rem;
+            border: 1px solid #d0dcec;
+            outline: none;
+
+        }
+          .submit{
+            background: rgb(4, 101, 4);
+            // margin-left: 20px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: white;
+            border: none;
+            transition: 0.3s;
+
+            
+            &:hover{
+            background-color:rgb(44, 139, 44);
+           }
+           }
+
+           @media(max-width:480px){
+            flex-direction: column;
+
+            input{
+                width: 100%;
+            }
+           }   
+    }
+
+
+    .footer-section{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        padding-top: 60px;
+
+
+        @media(max-width:900px){
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width:600px) {
+            grid-template-columns: 1fr;
+        }
+
+        .footersection{
+            padding-left: 0;
+        }
+
+
+        .icons{
+        display: flex;
+        gap: 15px;
+        font-size: 1.1rem;
+        justify-content: center;
+
+        svg{
+            background: rgb(148, 52, 52);
+            padding: 13px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 3px 10px rgba(26, 25, 25, 0.196);
+            cursor: pointer;
+            transition: 0.3s;
+
+        }
+         :hover{
+                background: green;
+                color: white;
+            }
+    }
+    .sub-field{
+        
+        h4{
+            font-size: 1.2rem;
+            color: green;
+        }
+        
+        ul{
+            list-style: none;
+            padding: 0;
+
+            li{
+                color: #555;
+                line-height: 34px;
+            }
+
+            :hover{
+                color: green;
+            }
+        }
+
+    }
+    }
+
+    .app-section{
+        text-align: center;
+        margin-top: 50px;
+
+        h3{
+            color: green;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+      
+    }
+
+     .app-icons{
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+
+        img{
+            width: 120px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
+     }
+
+        .copy-right{
+            text-align: center;
+        }
+
+}

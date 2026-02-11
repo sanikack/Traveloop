@@ -1,0 +1,88 @@
+.bookings-container {
+    padding: 28px;
+}
+
+.bookings-head {
+    font-size: 1rem;
+    color: rgb(5, 92, 5);
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.top-section{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+    margin-bottom: 50px;
+
+    .Booksearch{
+        width: 220px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1rem;
+        border: 1px solid #bbb3b3;
+        background: #f7fcf9;
+        outline: none;
+    }
+}
+
+.table-container {
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0, 4px, 18px rgb(0, 0, 0, 0.7);
+    
+}
+
+.Bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        text-align: left;
+        font-size: 0.9rem;
+        color: #0d6622;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #e3e3e3;
+
+    }
+
+    td {
+        padding: 8px;
+        color: #444;
+        font-size: 0.8rem;
+    }
+
+    tr:not(:last-child) td{
+        border-bottom: 1px solid #eee;
+    }
+
+    tr:hover td {
+        background: #f7fcf9;
+    }
+
+    .actionBtn{
+        display: flex;
+        gap: 30px;
+
+        .pencil{
+            cursor: pointer;
+            color: green;
+        }
+        .trash{
+            cursor: pointer;
+            color: red;
+        }
+    }
+}
+
+
+//RESPONSIVE....
+@media(max-width:768px){
+    .bookings-container{
+        padding: 15px;
+    }
+}
+

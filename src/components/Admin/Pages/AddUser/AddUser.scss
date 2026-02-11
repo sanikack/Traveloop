@@ -1,0 +1,53 @@
+.add-user-page {
+  max-width: 480px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+
+  h2 {
+    text-align: center;
+    color: #0f8b3d;
+    margin-bottom: 25px;
+  }
+}
+
+.add-user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  label {
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  input,
+  select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  button {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .save-btn {
+    background: linear-gradient(90deg, #0f8b3d, #57d26f);
+    color: #fff;
+  }
+
+  .cancel-btn {
+    background: #eee;
+  }
+}

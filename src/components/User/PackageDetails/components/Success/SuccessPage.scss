@@ -1,0 +1,186 @@
+.success-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f4fff6, #e9f8ec);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.success-card {
+  background: #ffffff;
+  max-width: 520px;
+  width: 100%;
+  padding: 50px 40px;
+  border-radius: 32px;
+  text-align: center;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+  animation: popIn 0.6s ease both;
+
+  .check-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #0b8a2f, #25d366);
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
+    position: relative;
+    animation: tickPop 0.8s ease forwards;
+
+  }
+
+  
+  .confetti {
+  position: absolute;
+  inset: -30px;
+  pointer-events: none;
+}
+
+.confetti::before,
+.confetti::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #25d366;
+  border-radius: 50%;
+  animation: confettiFall 1.8s ease-out forwards;
+}
+
+.confetti::before {
+  left: 30%;
+  top: 0;
+}
+
+.confetti::after {
+  background: #0b8a2f;
+  left: 65%;
+  top: 0;
+  animation-delay: 0.2s;
+}
+
+
+
+  h2 {
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #0b8a2f, #25d366);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .sub-text {
+    font-size: 15.5px;
+    color: #555;
+    margin-bottom: 22px;
+  }
+
+  .booking-id {
+    background: #f7faf7;
+    padding: 14px 18px;
+    border-radius: 14px;
+    font-size: 15px;
+    margin-bottom: 18px;
+
+    span {
+      font-weight: 700;
+      color: #0b8a2f;
+    }
+  }
+
+  .info-text {
+    font-size: 14.5px;
+    color: #555;
+    margin-bottom: 30px;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    a,
+    button {
+      padding: 14px 20px;
+      border-radius: 16px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      color: #fff;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 35px rgba(37, 211, 102, 0.5);
+      }
+    }
+
+    .home-btn {
+      background: #f1f1f1;
+      color: #333;
+
+      &:hover {
+        background: #e6e6e6;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .note {
+    font-size: 12.5px;
+    color: #777;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+@keyframes tickPop {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80px) scale(0);
+    opacity: 0;
+  }
+}

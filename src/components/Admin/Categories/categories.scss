@@ -1,0 +1,74 @@
+.admin-categories {
+  padding: 24px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h2 {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: rgb(7, 103, 7);
+    align-items: center;
+  }
+
+  .add-btn {
+    background: linear-gradient(90deg, rgb(8, 111, 8), rgb(22, 215, 22));
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+
+  th {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    color: rgb(10, 101, 10);
+  }
+
+  td{
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    color: #444;
+  }
+
+  .category-img{
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}
+
+.status.active {
+  color: green;
+  font-weight: 500;
+}
+
+.status.inactive {
+  color: red;
+}
+
+
+.edit{
+  color: green;
+  background: none;
+}
+
+.delete{
+  color:red;
+  background: none;
+}

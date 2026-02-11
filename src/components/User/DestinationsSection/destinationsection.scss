@@ -1,0 +1,132 @@
+.destination-section {
+  padding: 100px 0;
+  background:  #f4f8f4;
+  text-align: center;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+
+
+  .destination-header {
+    margin-bottom: 60px;
+
+    h2{
+      font-size: 2.6rem;
+      font-family: 700;
+      background: linear-gradient(to right, #034b03, #28b02d, #47ea47);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+
+      span{
+        color: #158915;
+      }
+
+      &::after{
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        background: #158915;
+        border-radius: 2px;
+      }
+    }
+
+    p{
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #555;
+    }
+   
+  }
+
+  .destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 60px;
+  }
+
+  .destination-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 6px 18px rgb(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-container{
+      position: relative;
+      width: 100%;
+      height: 100%;
+    
+
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .destination-info {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center; 
+      transition: opacity 0.5s ease, backdrop-filter 0.5s ease;
+      backdrop-filter: blur(5px);
+      padding: 0 20px;
+
+      h3 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1rem;
+        // color: #555;
+        margin-bottom: 15px;
+      }
+
+      button {
+        background: #158915;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.3s;
+
+        &:hover {
+          background: #106a10;
+        }
+      }
+    }
+
+    &:hover img{
+      transform: scale(1.08);
+    }
+
+    &:hover .destination-info{
+      opacity: 1;
+    }
+  }
+}
+}

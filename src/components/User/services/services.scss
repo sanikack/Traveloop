@@ -1,0 +1,45 @@
+.service-container{
+    padding: 40px 60px;
+    background-color: #f9f9f9;
+    text-align: center;
+
+    .service-title{
+        background: linear-gradient(to right, #045a04, #16a91b, #75e675);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.3rem;
+        margin-bottom: 80px;
+        
+    }
+
+    .service-section{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        padding: 40px 0;
+
+    }
+
+    .service-card{
+        width: 200px;
+        padding: 15px 10px;
+    }
+
+    img{
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    h4{
+        font-size: 1.1rem;
+        color: #333;
+        
+    }
+
+    .service-p{
+        color: #666;
+        line-height: 1.4;
+    }
+}

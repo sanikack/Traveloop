@@ -1,0 +1,132 @@
+.destination-details {
+  background: #f9fafb;
+}
+
+/* HERO */
+.destination-hero {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 30px;
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+
+    h2 {
+      font-size: 48px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      max-width: 600px;
+      color: #e5e7eb;
+      font-size: 16px;
+    }
+  }
+}
+
+/* ABOUT */
+.destination-about {
+  padding: 70px 8%;
+  margin: 80px auto;
+  max-width: 1100px;
+  background: #e9fbef; /* light green */
+  border-radius: 999px; /* perfect oval */
+  box-shadow: 
+  0 25px 50px rgba(0,0,0,0.06),
+  inset 0,0,0,1px rgba(22, 101, 52, 0.08);
+  text-align: center;
+  z-index: 5;
+
+
+  .about-heading{
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 30px;
+    color: #166534;
+    margin-bottom: 14px;
+
+    .headingIcon{
+        width: 45px;
+        height: auto;
+        object-fit: contain;
+    }
+  }
+
+  h2 {
+    font-size: 30px;
+    color: #166534;
+    margin-bottom: 14px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #374151;
+    line-height: 1.7;
+    max-width: 1100px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* SPECIALITIES */
+.destination-specialities {
+  padding: 70px 8%;
+  background: #f0fdf4;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: #065f46;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 700px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-size: 16px;
+      color: #374151;
+
+      svg {
+        color: #16a34a;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+/* LOADING */
+.loading {
+  padding: 100px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .destination-hero .overlay h1 {
+    font-size: 34px;
+  }
+
+  .destination-about,
+  .destination-specialities {
+    padding: 50px 6%;
+  }
+}

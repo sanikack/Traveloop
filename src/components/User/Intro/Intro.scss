@@ -1,0 +1,36 @@
+.intro-container{
+    padding: 80px 70px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.intro-left{
+    flex: 1;
+
+    h2{
+        font-size: 1.4rem;
+        font-weight: 600;
+        background: linear-gradient(90deg, #084a13, #32d45e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p{
+        font-size: 1rem;
+        color: #333;
+        line-height: 32px;
+    }
+}
+
+.intro-right{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+
+
+    img{
+        width: 220px;
+    }
+}

@@ -1,0 +1,182 @@
+.contact-container {
+  padding: 24px;
+  background: #f9fafb;
+  min-height: 100vh;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #256d17;
+    text-align: center;
+  }
+
+  /* ================= TABLE ================= */
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+    thead {
+      background: #f3f4f6;
+
+      th {
+        padding: 14px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
+        color: #256d17;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #e5e7eb;
+
+        &:hover {
+          background: #f9fafb;
+        }
+      }
+
+      td {
+        padding: 14px;
+        font-size: 14px;
+        color: #374151;
+        vertical-align: top;
+      }
+
+      .msg {
+        max-width: 300px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+    }
+  }
+
+  /* ================= STATUS ================= */
+
+  .pending {
+    color: #b91c1c;
+    background: #fee2e2;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .replied {
+    color: #166534;
+    background: #dcfce7;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* ================= ACTION BUTTONS ================= */
+
+  .action-btns {
+    display: flex;
+    gap: 10px;
+
+    button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+
+      &.reply {
+        color: #2563eb;
+
+        &:hover {
+          background: #e0e7ff;
+        }
+      }
+
+      &.delete {
+        color: #dc2626;
+
+        &:hover {
+          background: #fee2e2;
+        }
+      }
+    }
+  }
+
+  /* ================= REPLY MODAL ================= */
+
+  .reply-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .modal-box {
+      background: #fff;
+      width: 420px;
+      padding: 22px;
+      border-radius: 10px;
+
+      h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 120px;
+        resize: none;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        outline: none;
+      }
+
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 15px;
+
+        button {
+          padding: 6px 14px;
+          border-radius: 6px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .save {
+          background: #16a34a;
+          color: #fff;
+
+          &:hover {
+            background: #15803d;
+          }
+        }
+      }
+    }
+  }
+
+  /* ================= RESPONSIVE ================= */
+
+  @media (max-width: 768px) {
+    table {
+      font-size: 13px;
+
+      th,
+      td {
+        padding: 10px;
+      }
+    }
+  }
+}

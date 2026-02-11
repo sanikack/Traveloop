@@ -1,0 +1,98 @@
+.adminprofile {
+  padding: 110px 30px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.adminCards {
+  width: 900px;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+//LEFT SIDE
+.leftSide {
+  width: 260px;
+  background: linear-gradient(135deg,#166534,#22c55e);
+  color: white;
+  padding: 20px;
+  text-align: center;
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    margin: 10px 0 5px;
+  }
+
+  .adminEditt {
+    border: none;
+    background: white;
+    color: #166534;
+    margin-top: 16px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:hover {
+      opacity: .9;
+      border-radius: 15px;
+    }
+  }
+
+  .avatarBtn {
+  display:inline-block;
+  margin-top:10px;
+  padding:6px 12px;
+  background:#222;
+  color:#fff;
+  border-radius:6px;
+  cursor:pointer;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  margin-bottom: 35px;
+}
+
+}
+
+
+//RIGHT SIDE...
+.rightSide {
+  flex: 1;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  flex-direction: column;
+  gap: 18px;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-size: 14px;
+      outline: none;
+    }
+
+  }
+}

@@ -1,0 +1,111 @@
+.cards-wraper{
+  padding: 20px;
+  transform: margin-left 0.3s ease;
+
+   @media(max-width: 600px){
+        padding: 10px;
+    }
+}
+
+.cards-wraper.expanded{
+  margin-left: 230px;
+}
+
+.cards-wraper.collapsed{
+  margin-left: 60px;
+}
+
+.dashboard-cards {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+
+   @media(max-width: 600px){
+       gap: 10px;
+    }
+}
+
+/* Card Base */
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: 0.3s ease;
+  cursor: pointer;
+
+
+   @media(max-width: 600px){
+        width: 260px;
+        padding: 10px;
+        border-radius: 10px;
+        gap: 15px;
+    }
+}
+
+/* Hover Effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Icon styling */
+.icon-box {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+
+  &.bookings { background: linear-gradient(120deg, #0f8b3d, #4fd169); }
+  &.users { background: linear-gradient(120deg, #1b8a3a, #86e3a6); }
+  &.destinations { background: linear-gradient(120deg, #23a059, #72e0a4); }
+  &.revenue { background: linear-gradient(120deg, #0c7a33, #4bd96a); }
+  &.reviews { background: linear-gradient(120deg, #1faa59, #93e8b6); }
+
+
+   @media(max-width: 600px){
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+}
+
+/* Text area */
+.text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1b4d2e;
+
+   @media(max-width: 600px){
+        font-size: 1.1rem;
+    }
+}
+
+.text p {
+  font-size: 0.9rem;
+  margin-top: 4px;
+  color: #4a4a4a;
+  opacity: 0.9;
+
+   @media(max-width: 600px){
+       font-size: 0.8rem;
+
+    }
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards-wraper{
+    margin-left: 0;
+    padding-left: 10px;
+  }
+}

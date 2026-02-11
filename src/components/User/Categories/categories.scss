@@ -1,0 +1,97 @@
+.categories {
+  padding: 80px 60px;
+  background: #f9f9f9;
+  text-align: center;
+
+
+  .category-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: rgb(14, 148, 14);
+    font-weight: 700;
+    font-family: "Urbanist", "Poppins", sans-serif;
+    padding-bottom: 30px;
+    background: linear-gradient(to right, #034b03, #28b02d, #47ea47);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+  }
+
+  .arrow-container{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .arrow-btn{
+    padding: 10px 8px;
+    border: none;
+    font-size: 20px;
+    border-radius: 15px;
+    background: rgb(235, 233, 233);
+    margin: 0px 7px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+
+  }
+
+  .carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .carousel-track {
+   display: flex;
+   transition: transform 0.5s ease;
+
+   &.smooth{
+    transition: transform 0.7s ease-in-out;
+   }
+
+
+   
+    .carousel-card {
+     width: 240px;
+     height: 280px;
+     margin-right: 20px;
+     border-radius: 18px;
+     overflow: hidden;
+     position: relative;
+     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+     flex-shrink: 0;
+     box-shadow: 0 5px 20px rgb(0, 0, 0, 0.2);
+
+
+     img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+     }
+
+     span{
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 14px;
+      border-radius: 12px;  
+      // font-size: 1rem;
+      color: #fff;
+      font-weight: 600;
+     }
+    }
+
+     @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+    
+  }
+}

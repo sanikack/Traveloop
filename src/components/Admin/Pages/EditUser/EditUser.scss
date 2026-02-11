@@ -1,0 +1,50 @@
+.edit-user-container {
+  max-width: 420px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0f6a32;
+  }
+}
+
+.edit-user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  input,
+  select {
+    padding: 9px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.save-btn {
+  background: linear-gradient(90deg, #0f8b3d, #57d26f);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #eee;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}

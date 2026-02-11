@@ -1,0 +1,29 @@
+.destination-graph{
+  width: 100%;
+  background: #ffffff;
+  padding: 22px 30px;
+  border-radius: 10px;
+}
+
+.destHeading{
+  font-size: 1.4rem;
+  background: #ffffff;
+  font-weight: 700;
+  color: #1b4d2e;
+  margin-bottom: 20px;
+}
+
+.echart{
+  width: 100%;
+  height: 300px;
+}
+
+@media(max-width: 768px){
+  .echart{
+    height: 260px;
+  }
+
+  .destination-graph{
+    padding: 20px;
+  }
+}

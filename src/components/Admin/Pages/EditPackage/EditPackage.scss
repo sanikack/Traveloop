@@ -1,0 +1,83 @@
+.editPkg-container{
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+
+  h2{
+    text-align: center;
+    color: green;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 60px;
+  }
+}
+
+.pkgForm{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.pkgSection{
+    display: flex;
+    flex-direction: column;
+
+    label{
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    input,
+    textarea,
+    select{
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid green;
+        outline: none;
+        font-size: 0.9rem;
+    }
+}
+
+.itineraryBox{
+    background: #f6fff6;
+    border: 1px solid #c6e6c6;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input {
+    font-weight: 500;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+}
+
+.addDay{
+  margin-top: 10px;
+  align-self: flex-start;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+}
+
+ button{
+        padding: 10px;
+        border-radius: 5px;
+        background: linear-gradient(90deg, rgb(5, 121, 5), rgb(20, 196, 20), rgb(72, 227, 72));
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }

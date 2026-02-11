@@ -1,0 +1,87 @@
+.add-destination-container {
+  background: #ffffff;
+  max-width:500px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 6px 20px rgb(0, 0, 0, 0.07);
+  margin: 40px auto;
+
+  h3 {
+    text-align: center;
+    color: #1b4d2e;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+.add-destination-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-destination-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid green;
+    outline: none;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    &:focus{
+      color: #1b8a3a;
+    }
+  }
+}
+
+
+.add-dest-btn {
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #0f8b3d, #57d26f);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+
+//RESPONSIVE
+
+@media(max-width:768px){
+  .add-destination-container{
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .add-destination-group select{
+    font-size: 16px;
+  }
+}
+
