@@ -1,5 +1,5 @@
 const { useState, useEffect } = require("react");
-const { useNavigate, Navigate } = require("react-router-dom");
+const { Navigate } = require("react-router-dom");
 
 const AdminProtectRoute= ({ children })=>{
     const [loading,setLoading]=useState(true);

@@ -25,12 +25,11 @@ const DashboardCards = ({isOpen}) => {
     const res= await fetch("http://localhost:8000/api/admin/dashboard",{
       credentials: "include"
     })
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.success){
-        setStats(data.data)
-      }
-    })
+    const data= await res.json();
+
+    if(data.success){
+      setStats(data.data)
+    }
   }
 
 
