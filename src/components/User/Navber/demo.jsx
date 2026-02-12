@@ -1,17 +1,46 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Menu, X, User, LogOut, Settings, BookIcon } from "lucide-react";
-import {Link, useNavigate} from "react-router-dom"
+import {Link, useLocation, useNavigate} from "react-router-dom"
 import "./demo.scss"
 import Swal from "sweetalert2";
 
 
+
 const Navbar = () => {
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [user, setUser]= useState(null);
   const [userMenuOpen, setUserMenuOpen]= useState(false);
-  const navigate= useNavigate();
+  const [isMobile, setIsMobile]= useState(window.innerWidth <= 768);
 
+
+  const location= useLocation();
+  const navigate= useNavigate();
   const userMenuRef= useRef();
+  const modalRef= useRef();
+  const ignoreOutsideClick = useRef(false);
+  
+
+  useEffect(() => {
+  const onResize = () => setIsMobile(window.innerWidth <= 768);
+  window.addEventListener("resize", onResize);
+  return () => window.removeEventListener("resize", onResize);
+}, []);
+
+
+//CLOSE MENU WHEN ROUTE CHANGE
+useEffect(()=>{
+  setMenuOpen(false)
+  setUserMenuOpen(false)
+},[location.pathname])
+
+
+// / lock scroll when modal open
+  useEffect(() => {
+    document.body.style.overflow =
+      (userMenuOpen && isMobile) ? "hidden" : "auto";
+  }, [userMenuOpen, isMobile]);
+
 
   const showAlert= (icon,text)=>{
     Swal.fire({
@@ -30,30 +59,41 @@ const Navbar = () => {
       credentials: "include"
     })
     .then(res=> res.ok ? res.json() : null)
-    .then(data=> {
-      if(data?.user) setUser(data.user)
-    })
+    .then(data=> data?.user && setUser(data.user))
 
-  .catch(()=> setUser(null))
+    .catch(()=> setUser(null))
   },[]);
 
 
 //close dropdrown when click on the outside
 useEffect(()=>{
-  const handleClick= (e)=>{
-    if(userMenuRef.current &&
-      !userMenuRef.current.contains(e.target)
-    ){
-      setUserMenuOpen(false);
+  if(!userMenuOpen) return;
+
+  const handleClick= (e)=> {
+
+    // ⭐ ignore first click after open
+    if (ignoreOutsideClick.current) {
+      ignoreOutsideClick.current = false;
+      return;
     }
+
+    const inUserArea = userMenuRef.current?.contains(e.target);
+    const inModal = modalRef.current?.contains(e.target);
+
+    if (!inUserArea && !inModal) {
+        setUserMenuOpen(false);
+      }
+    
   };
 
-  document.addEventListener("mousedown", handleClick);
+    document.addEventListener("mousedown", handleClick);
+ 
 
-  return()=>{
+  return()=> {
     document.removeEventListener("mousedown",handleClick)
   }
-},[])
+},[userMenuOpen])
+
 
   //logoutttt....
   const handleLogout= async()=>{
@@ -76,8 +116,22 @@ useEffect(()=>{
   }
 
   catch(err){
-    showAlert("err", err.message)
+    showAlert("error", err.message)
   }
+  }
+
+
+   //WHEN USER ICON CLICK...
+  const handleUserClick= (e)=>{
+    e.stopPropagation();
+
+    ignoreOutsideClick.current = true;
+
+    // if hamburger open → close it first
+    if (menuOpen) setMenuOpen(false);
+
+      setUserMenuOpen(prev => !prev)
+
   }
   
 
@@ -85,6 +139,16 @@ useEffect(()=>{
 
   return (
     <nav className="navbar">
+
+       {/* ✅ ADD HERE */}
+    {userMenuOpen && isMobile && (
+      <div
+        className="modal-backdrop"
+        onClick={() => setUserMenuOpen(false)}
+      />
+    )}
+
+
       <div className="navbar__container">
         
         {/* --- Left: Logo Section --- */}
@@ -112,17 +176,12 @@ useEffect(()=>{
               <button className="loginbtn">Login</button>
               </Link> 
           ) : (
-            <div className="user-menu" ref={userMenuRef} onClick={(e)=> {
-              e.stopPropagation();
-              setUserMenuOpen(prev=>!prev)}
-            } 
-            >
-              <User size={22}/>
+            <div className="user-menu" ref={userMenuRef} >
+              <User size={22} onClick={handleUserClick}/>
 
              
-
                 {userMenuOpen && (
-  <div className="user-dropdown" ref={userMenuRef}>
+  <div ref={modalRef} className= {isMobile ? "user-modal-mobile" : "user-dropdown"} onClick={(e)=> e.stopPropagation()}>
     <div className="user-info">
       <p className="username">{user.name}</p>
       <p className="email">{user.email}</p>
@@ -153,7 +212,10 @@ useEffect(()=>{
         </ul>
 
         {/* --- Right: Mobile Toggle --- */}
-        <div className="navbar__toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        <div className="navbar__toggle" onClick={() => {
+          setUserMenuOpen(false)
+          setMenuOpen(!menuOpen)
+        }}>
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </div>
       </div>
