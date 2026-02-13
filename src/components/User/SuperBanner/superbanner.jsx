@@ -7,7 +7,7 @@ const Superbanner= ()=>{
         <section className="super-banner">
             <video
             className="super-video"
-            src="https://player.cloudinary.com/embed/?cloud_name=dwdu2bssz&public_id=Superbannervideo_hqvmox"
+            src="https://res.cloudinary.com/dwdu2bssz/video/upload/v1770996939/Superbannervideo_hqvmox.mp4"
             autoPlay
             muted
             loop
