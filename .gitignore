@@ -16,6 +16,13 @@
 /build
 dist/
 
+# uploads
+uploads/
+public/uploads
+uploads/
+*.mp4
+*.mov
+
 # misc
 .DS_Store
 .env.local
