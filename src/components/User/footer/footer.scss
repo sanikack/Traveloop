@@ -207,15 +207,18 @@
     }
 
     .input-container{
+        display: flex;
+        align-items: center;
         text-align: center;
         display: flex;
         justify-content: center;
+        max-width: 480px;
+        margin: 0 auto;
         gap: 12px;
 
 
         input{
-            width: 100%;
-            max-width: 330px;
+            flex: 1;
             padding: 12px 15px;
             border-radius: 5px;
             background: #ffffff;
@@ -226,7 +229,7 @@
         }
           .submit{
             background: rgb(4, 101, 4);
-            // margin-left: 20px;
+            white-space: nowrap;
             padding: 12px 15px;
             border-radius: 10px;
             color: white;
@@ -345,4 +348,21 @@
             text-align: center;
         }
 
+}
+
+
+@media (max-width: 480px) {
+  .input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-container input {
+    width: 100%;
+  }
+
+  .input-container .submit {
+    width: fit-content;   // 🔥 button shrink
+    align-self: center;   // center button
+  }
 }

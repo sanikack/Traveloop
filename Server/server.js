@@ -84,7 +84,7 @@ app.use("/api/settings", SettingsRoute)
 app.use("/api/review", ReviewRoutes)
 
 
-const Port= process.env.Port || 8000;
+const Port= process.env.PORT || 8000;
 app.listen(Port,()=>{
     console.log(`running on ${Port}`);
     
