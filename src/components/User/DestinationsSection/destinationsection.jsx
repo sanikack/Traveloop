@@ -8,7 +8,6 @@ const Destinations= ()=>{
   const navigate= useNavigate();
 
   const [destination, setDestination]= useState([]);
-  const [index, setIndex]= useState(0);
 
   const fetchDestinations = async()=>{
     try{
