@@ -38,7 +38,7 @@ const Adminlog= ()=>{
     return
   }
 
-    const res= await fetch("http://localhost:8000/api/admin/auth/login",{
+    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/auth/login`,{
       method:"post",
       headers:{ "Content-Type" : "application/json"},
       credentials:"include",

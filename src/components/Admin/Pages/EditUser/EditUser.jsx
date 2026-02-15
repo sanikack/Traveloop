@@ -35,7 +35,7 @@ const EditUser = () => {
 
   const fetchUsers= async()=>{
     try{
-      const res= await fetch(`http://localhost:8000/api/admin/user/${id}`);
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user/${id}`);
       const data= await res.json();
 
       if(!res.ok){
@@ -67,7 +67,7 @@ const EditUser = () => {
     try{
       setLoading(true);
 
-      const res= await fetch(`http://localhost:8000/api/admin/user/${id}`,{
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user/${id}`,{
         method: "Put",
         headers: {"Content-Type" : "application/json"},
         body: JSON.stringify(formData)

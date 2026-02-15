@@ -20,7 +20,7 @@ const RecentActivity = ()=>{
 
     const fetchActivities= async ()=>{
         try{
-            const res= await fetch("http://localhost:8000/api/admin/dashboard/recent-activities",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/dashboard/recent-activities`,{
                 credentials:"include"
             });
 

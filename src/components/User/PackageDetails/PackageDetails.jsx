@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../Navber/demo";
 import Footer from "../footer/footer";
-
 import PackageHero from "./components/PackageHero";
 import PackageOverview from "./components/PackageOverView";
 import PackageGallery from "./components/PackageGallery";
 import PackageItinerary from "./components/PackageItinerary";
 import PackageInclusions from "./components/PackageInclusion";
 import PackageCTA from "./components/PackageCTA";
-
 import "./PackageDetails.scss";
+
+
 
 const PackageDetails = () => {
   const { id } = useParams();
@@ -19,7 +19,7 @@ const PackageDetails = () => {
   useEffect(() => {
     if(!id) return
 
-    fetch(`http://localhost:8000/api/package/${id}`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/package/${id}`)
       .then(res => res.json())
       .then(data => {
         console.log("single package:",data);

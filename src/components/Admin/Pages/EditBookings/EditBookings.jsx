@@ -26,7 +26,7 @@ const EditBookings= ()=>{
         //fetch single bookings
         const fetchBookings= async()=>{
             try{
-                const res= await fetch(`http://localhost:8000/api/admin/bookings/${id}`);
+                const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/bookings/${id}`);
                 const data= await res.json();
 
                 if(!res.ok){
@@ -58,7 +58,7 @@ const EditBookings= ()=>{
 
             try{
                 setLoading(true);
-                const res= await fetch(`http://localhost:8000/api/admin/bookings/${id}`,{
+                const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/bookings/${id}`,{
                     method:"PUT",
                     headers:{ "Content-Type" : "application/json"},
                     body: JSON.stringify({status})

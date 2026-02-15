@@ -24,7 +24,7 @@ const AdminPackage= ()=>{
 
   const fetchPackages= async ()=>{
     try{
-      const res= await fetch("http://localhost:8000/api/admin/packages");
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages`);
       const data= await res.json();
 
       if(res.ok){
@@ -61,7 +61,7 @@ const handleDelete= async(id)=>{
 
   try{
 
-    const res= await fetch(`http://localhost:8000/api/admin/packages/${id}`,
+    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages/${id}`,
       { method: "DELETE"}
     )
     const data= await res.json();
@@ -122,7 +122,7 @@ const filteredPackages= packages.filter(
                   {filteredPackages.map((pkg)=>(
                     <tr key={pkg._id}>
                       <td className="pkg-name">
-                        {pkg.image ? (<img src={`http://localhost:8000/uploads/${pkg.image}`} alt={pkg.title}/>) 
+                        {pkg.image ? (<img src={`${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} alt={pkg.title}/>) 
                         : ("No image")}
                         </td>
                         

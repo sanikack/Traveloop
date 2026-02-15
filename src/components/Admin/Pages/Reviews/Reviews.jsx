@@ -24,7 +24,7 @@ const Reviews = () => {
 
   const fetchReviews= async ()=>{
     try{
-      const res= await fetch("http://localhost:8000/api/admin/reviews",{
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/reviews`,{
         credentials: "include"
       })
       const data= await res.json();
@@ -40,7 +40,7 @@ const Reviews = () => {
 
   //approve hide reviews..
   const Updatestatus= async(id, status)=> {
-    const res= await fetch(`http://localhost:8000/api/admin/reviews/${id}`,{
+    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/reviews/${id}`,{
       method: "put",
       credentials: "include",
       headers: {"Content-Type" : "application/json"},

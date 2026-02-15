@@ -13,7 +13,7 @@ const AdminCategories = () => {
 
   const fetchCategories= async ()=>{
     try{
-      const res= await fetch("http://localhost:8000/api/admin/categories");
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories`);
       const data= await res.json();
 
       if(res.ok){
@@ -43,7 +43,7 @@ const AdminCategories = () => {
     if(!confirmDelete.isConfirmed) return
 
     try{
-      const res= await fetch(`http://localhost:8000/api/admin/categories/${id}`,{
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories/${id}`,{
         method: "Delete"
       });
 
@@ -100,7 +100,7 @@ const AdminCategories = () => {
         <tbody>
           {categories.map(cat => (
             <tr key={cat._id}>
-              <td>{cat.image ? (<img src={`http://localhost:8000/uploads/${cat.image}`} 
+              <td>{cat.image ? (<img src={`${process.env.REACT_APP_API_URL}/uploads/${cat.image}`} 
               alt={cat.name} className="category-img"/>)
               : ("No image")
             }</td>

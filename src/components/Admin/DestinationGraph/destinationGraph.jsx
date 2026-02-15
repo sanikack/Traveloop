@@ -13,7 +13,7 @@ const DestinationGraph = () =>{
 
   const fetchDestinationGraph= async()=>{
     try{
-    const res= await fetch("http://localhost:8000/api/admin/dashboard/top-destination",{
+    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/dashboard/top-destination`,{
       credentials: "include"
     });
 

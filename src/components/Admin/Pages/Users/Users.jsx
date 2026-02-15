@@ -24,7 +24,7 @@ const Users= () => {
 
     const fetchUsers= async()=>{
         try{
-            const res= await fetch("http://localhost:8000/api/admin/user")
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user`)
             const data= await res.json();
 
             if(!res.ok){
@@ -59,7 +59,7 @@ const Users= () => {
        if (!confirm.isConfirmed) return;
 
        try{
-        const res= await fetch(`http://localhost:8000/api/admin/user/${id}`,{
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user/${id}`,{
             method: "Delete"
         })
 
@@ -82,7 +82,7 @@ const Users= () => {
     //Block and Unblock
     const toggleStatus= async (id, currentStatus)=> {
         try{
-            const res= await fetch(`http://localhost:8000/api/admin/user/${id}`,{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user/${id}`,{
                 method: "Put",
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify({

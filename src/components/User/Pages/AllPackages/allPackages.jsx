@@ -23,7 +23,7 @@ const AllPackages= ()=>{
     //fetch all packages from backend
     const fetchPackages= async()=>{
         try{
-            const res= await fetch("http://localhost:8000/api/package");
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/package`);
         const data= await res.json();
 
         if(res.ok){
@@ -195,7 +195,7 @@ const AllPackages= ()=>{
       <div className="grid">
         {filteredPackages.map((pkg) => (
           <div className="package-card" key={pkg._id}>
-            <img src={`http://localhost:8000/uploads/${pkg.image}`} alt={pkg.title} className="bg-img" />
+            <img src={`${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} alt={pkg.title} className="bg-img" />
 
             <div className="overlay"></div>
 

@@ -25,7 +25,7 @@ const Sidebar = ({isOpen, setOpen}) => {
 
   const handleLogout= async ()=>{
     try{
-      const res= await fetch("http://localhost:8000/api/admin/auth/logout",{
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/auth/logout`,{
         method:"post",
         credentials:"include"
       });

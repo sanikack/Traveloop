@@ -22,7 +22,7 @@ const DashboardCards = ({isOpen}) => {
   },[])
 
   const fetchStats= async ()=>{
-    const res= await fetch("http://localhost:8000/api/admin/dashboard",{
+    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/dashboard`,{
       credentials: "include"
     })
     const data= await res.json();

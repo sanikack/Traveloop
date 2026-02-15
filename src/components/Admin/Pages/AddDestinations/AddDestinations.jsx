@@ -52,7 +52,7 @@ const handleSubmit= async(e) =>{
    formdata.append("image", image)
    formdata.append("category", "64b000000000000000000001");
 
-   const res= await fetch("http://localhost:8000/api/admin/destination",{
+   const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination`,{
     method: "post",
     body: formdata
    });

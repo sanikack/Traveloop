@@ -20,7 +20,7 @@ const DestinationDetails= ({})=>{
 
   const fetchDestination= async()=>{
     try{
-      const res= await fetch(`http://localhost:8000/api/destination/${slug}`);
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/destination/${slug}`);
       const data= await res.json();
 
       if(res.ok){

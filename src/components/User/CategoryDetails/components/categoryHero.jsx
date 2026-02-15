@@ -6,7 +6,7 @@ const CategoryHero = ({ category }) => {
   return (
     <section
       className="category-hero"
-      style={{ backgroundImage: `url(http://localhost:8000/uploads/${category.image})` }}
+      style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/uploads/${category.image})` }}
     >
       <div className="overlay" />
       <div className="hero-content">

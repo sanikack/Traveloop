@@ -35,7 +35,7 @@ const EditCategory = () => {
 
   const fetchCategories= async ()=>{
     try{
-      const res= await fetch(`http://localhost:8000/api/admin/categories/${id}`);
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories/${id}`);
 
       const data = await res.json();
 
@@ -53,7 +53,7 @@ const EditCategory = () => {
       setidealFor(data.categories.idealFor || "")
       setSpecialities(data.categories.specialities?.join("\n") || "")
       setPreview(data.categories.image ?
-        `http://localhost:8000/uploads/${data.categories.image}` : ""
+        `${process.env.REACT_APP_API_URL}/uploads/${data.categories.image}` : ""
       )
     }
     catch(err){
@@ -93,7 +93,7 @@ const EditCategory = () => {
       if(image) formData.append("image", image)
 
 
-        const res= await fetch(`http://localhost:8000/api/admin/categories/${id}`,{
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories/${id}`,{
           method: "Put",
           body: formData
         });

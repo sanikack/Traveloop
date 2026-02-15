@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-
   const BookingForm= ()=>{
     const {id}= useParams();
     const navigate= useNavigate()
@@ -37,7 +36,7 @@ import Swal from "sweetalert2";
 
 
     useEffect(()=>{
-        fetch(`http://localhost:8000/api/package/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}/api/package/${id}`)
         .then(r=> r.json())
         .then(d => setPkg(d.package))
     },[id])
@@ -62,7 +61,7 @@ import Swal from "sweetalert2";
         setErrors({})
 
         try{
-            const res= await fetch(`http://localhost:8000/api/booking/${id}`,{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/booking/${id}`,{
                 method: "POST",
                 headers: { "Content-Type" : "application/json"},
                 credentials: "include",

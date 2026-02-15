@@ -24,7 +24,7 @@ const Bookings = () => {
 
   const fetchBookings= async ()=>{
     try{
-    const res= await fetch("http://localhost:8000/api/admin/bookings")
+    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/bookings`)
     const data= await res.json();
 
       if(data.success){
@@ -58,7 +58,7 @@ const Bookings = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:8000/api/admin/bookings/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/admin/bookings/${id}`,
         { method: "DELETE" }
       );
       const data = await res.json();

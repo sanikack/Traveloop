@@ -12,7 +12,7 @@ const Messages= ()=>{
 
 
     const fetchMessages= async ()=>{
-        const res= await fetch("http://localhost:8000/api/admin/messages")
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/messages`)
         const data= await res.json();
 
         setMessage(data.messages);
@@ -45,7 +45,7 @@ const Messages= ()=>{
     
                     if(!confirmDelete.isConfirmed) return
     
-                     const res= await fetch(`http://localhost:8000/api/admin/messages/${id}`,{
+                     const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/messages/${id}`,{
                         method: "delete"
                     });
     
@@ -62,7 +62,7 @@ const Messages= ()=>{
                                 return showAlert("error", data.message)
                             }
 
-                            const res= await fetch(`http://localhost:8000/api/admin/messages/reply/${selectedMessage._id}`,{
+                            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/messages/reply/${selectedMessage._id}`,{
                                 method: "put",
                                 headers: { "Content-Type" : "application/json"},
                                 body: JSON.stringify({reply:replyText})

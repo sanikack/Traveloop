@@ -117,7 +117,7 @@ const Footer =()=>{
         try{
             setLoading(true);
 
-            const res= await fetch("http://localhost:8000/api/newsletter",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/newsletter`,{
                 method:"post",
                 headers:{ "Content-Type" : "application/json"},
                 body: JSON.stringify({email})

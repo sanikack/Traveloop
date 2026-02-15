@@ -29,7 +29,7 @@ const EditDestination = () => {
 
    const fetchDestination= async ()=>{
     try{
-      const res= await fetch(`http://localhost:8000/api/admin/destination/${id}`);
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination/${id}`);
       const data= await res.json();
 
       if(!res.ok){
@@ -74,7 +74,7 @@ const EditDestination = () => {
       )
       if(image) formdata.append("image", image)
 
-        const res= await fetch(`http://localhost:8000/api/admin/destination/${id}`,{
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination/${id}`,{
           method:"Put",
           body: formdata
         })

@@ -28,7 +28,7 @@ const BookingCard = ({ booking, onCancel }) => {
   }
 
   try{
-    const res= await fetch("http://localhost:8000/api/review",{
+    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/review`,{
       method:"post",
       credentials: "include",
       headers:{ "Content-Type" : "application/json"},
@@ -64,7 +64,7 @@ const BookingCard = ({ booking, onCancel }) => {
   return (
     <>
     <div className="booking-card">
-      <img src={`http://localhost:8000/uploads/${pkg.image}`} alt={pkg.title} />
+      <img src={`${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} alt={pkg.title} />
 
       <div className="details">
         <h3>{pkg.title}</h3>
@@ -97,7 +97,7 @@ const BookingCard = ({ booking, onCancel }) => {
             <button onClick={()=> setShowReviewModal(true)}>Write Review</button>
           )}
         </div>
-        <a href={`http://localhost:8000/api/invoice/${booking._id}`} target="_blank" 
+        <a href={`${process.env.REACT_APP_API_URL}/api/invoice/${booking._id}`} target="_blank" 
         rel="noopener noreferrer" className="actions">
         Invoice
         </a>

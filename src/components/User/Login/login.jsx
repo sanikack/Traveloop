@@ -4,6 +4,7 @@ import {Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
+
 const Login= ()=>{
 
     const [Formdata, setFormData]= useState({
@@ -27,7 +28,7 @@ const Login= ()=>{
     
 
     try{
-        const res= await fetch("http://localhost:8000/api/auth/login",{
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`,{
             method: "Post",
             headers: {"Content-Type" : "application/json"},
             credentials: "include",

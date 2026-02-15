@@ -12,7 +12,7 @@ const Subscribers= ()=>{
 
     const fetchSubscribers= async ()=>{
         
-            const res= await fetch("http://localhost:8000/api/admin/subscribe");
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/subscribe`);
             const data= await res.json();
 
                 setSubscribers(data.subscribers)
@@ -33,7 +33,7 @@ const Subscribers= ()=>{
 
                 if(!confirmDelete.isConfirmed) return
 
-                 const res= await fetch(`http://localhost:8000/api/admin/subscribe/${id}`,{
+                 const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/subscribe/${id}`,{
                     method: "delete"
                 });
 

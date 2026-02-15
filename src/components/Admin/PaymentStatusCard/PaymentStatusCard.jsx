@@ -16,7 +16,7 @@ const PaymentStatusCard = () => {
 
   const fetchStats= async ()=>{
     try{
-      const res= await fetch("http://localhost:8000/api/admin/dashboard/payment-stats",{
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/dashboard/payment-stats`,{
         credentials: "include"
       })
       const data= await res.json();

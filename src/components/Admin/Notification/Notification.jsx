@@ -17,7 +17,7 @@ const AdminNotifications = () => {
   const fetchNotifications = async ()=>{
     try{
       const res = await fetch(
-        "http://localhost:8000/api/admin/dashboard/notification",
+        `${process.env.REACT_APP_API_URL}/api/admin/dashboard/notification`,
         { credentials:"include" }
       );
       const data = await res.json();
@@ -34,7 +34,7 @@ const AdminNotifications = () => {
   // mark single read
   const markRead = async(id)=>{
     await fetch(
-      `http://localhost:8000/api/admin/dashboard/notification/${id}/read`,
+      `${process.env.REACT_APP_API_URL}/api/admin/dashboard/notification/${id}/read`,
       { method:"PUT", credentials:"include" }
     );
 
@@ -46,7 +46,7 @@ const AdminNotifications = () => {
   // mark all read
   const markAllRead = async ()=>{
     await fetch(
-      "http://localhost:8000/api/admin/dashboard/notifications/read-all",
+      `${process.env.REACT_APP_API_URL}/api/admin/dashboard/notifications/read-all`,
       { method:"PUT", credentials:"include" }
     );
 

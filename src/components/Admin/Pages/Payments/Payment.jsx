@@ -20,7 +20,7 @@ const Payment = () => {
 
     const fetchPayments= async()=>{
         try{
-            const res= await fetch("http://localhost:8000/api/admin/payment");
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/payment`);
         const data= await res.json();
 
         if(res.ok){

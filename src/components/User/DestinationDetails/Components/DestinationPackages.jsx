@@ -43,7 +43,7 @@ const DestinationPackage= ({packages})=>{
             <div className="grid">
                 {packages.map((pkg)=>(
                     <div className="package-cards" key={pkg._id}>
-                        <img src={`http://localhost:8000/uploads/${pkg.image}`} 
+                        <img src={`${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} 
                         alt={pkg.title} className="bg-img" />
 
                         <div className="overlay"></div>

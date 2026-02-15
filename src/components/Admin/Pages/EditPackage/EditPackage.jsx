@@ -44,7 +44,7 @@ const EditPackages= ()=>{
 
         const fetchPackages= async ()=>{
             try{
-                const res= await fetch(`http://localhost:8000/api/admin/packages/${id}`,{
+                const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages/${id}`,{
                     credentials: "include"
                 })
             const data= await res.json();
@@ -88,7 +88,7 @@ const EditPackages= ()=>{
      //fetch categories and destinations
      useEffect(()=>{
 
-        fetch("http://localhost:8000/api/admin/categories",{
+        fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories`,{
             credentials: "include"
         })
         .then(res=> res.json())
@@ -97,7 +97,7 @@ const EditPackages= ()=>{
         })
 
 
-        fetch("http://localhost:8000/api/admin/destination",{
+        fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination`,{
             credentials: "include"
         })
         .then(res=> res.json())
@@ -156,7 +156,7 @@ const EditPackages= ()=>{
                 formData.append("gallery",img)
                ))   
 
-                    const res= await fetch(`http://localhost:8000/api/admin/packages/${id}`,{
+                    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages/${id}`,{
                         method: "PUT",
                         body: formData,
                         credentials: "include"

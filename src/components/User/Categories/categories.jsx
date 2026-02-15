@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./categories.scss"
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Categories = ()=>{
 
@@ -12,7 +12,7 @@ const Categories = ()=>{
     const fetchCategories= async () =>{
        try{
 
-         const res= await fetch("http://localhost:8000/api/category");
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/category`);
         const data= await res.json();
 
         if(res.ok){
@@ -74,7 +74,7 @@ const Categories = ()=>{
 {categories.map((cat) => (
     <Link key={cat._id} to={`/categories/${cat.slug}`}>
   <div className="carousel-card">
-    <img src={`http://localhost:8000/uploads/${cat.image}`} alt={cat.name} />
+    <img src={`${process.env.REACT_APP_API_URL}/uploads/${cat.image}`} alt={cat.name} />
     <span>{cat.name}</span>
               </div>
             </Link>            

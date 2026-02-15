@@ -32,7 +32,7 @@ const AddSubscribers= ()=>{
         try{
             setLoading(true);
 
-            const res= await fetch("http://localhost:8000/api/admin/subscribe",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/subscribe`,{
                 method: "post",
                 headers:{ "Content-type" : "application/json"},
                 body: JSON.stringify({ email })

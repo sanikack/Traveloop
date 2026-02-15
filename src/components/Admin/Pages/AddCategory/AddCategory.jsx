@@ -51,7 +51,7 @@ const showAlert= (icon,title)=>{
       )
       if(image) formdata.append("image", image)
 
-        const res= await fetch("http://localhost:8000/api/admin/categories",
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories`,
           {
             method: "POST",
             body: formdata

@@ -3,6 +3,7 @@ import BookingCard from "./BookingCard";
 import "./Bookings.scss"
 import Swal from "sweetalert2";
 
+
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const [filter, setFilter] = useState("all");
@@ -19,7 +20,7 @@ const Bookings = () => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/booking/my-bookings", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/booking/my-bookings`, {
       credentials: "include"
     })
       .then(res => res.json())
@@ -46,7 +47,7 @@ const Bookings = () => {
     //if user clicked confirm
     if(result.isConfirmed){
       try{
-        const res= await fetch(`http://localhost:8000/api/booking/cancel/${id}`,{
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/booking/cancel/${id}`,{
           method:"put",
           credentials: "include"
         });

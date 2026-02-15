@@ -6,7 +6,7 @@ const PackageHero = ({ pkg }) => {
     <section
       className="package-hero"
       style={{
-        backgroundImage: `url(http://localhost:8000/uploads/${pkg.image})`
+        backgroundImage: `url(${process.env.REACT_APP_API_URL}/uploads/${pkg.image})`
       }}
     >
       <div className="overlay">

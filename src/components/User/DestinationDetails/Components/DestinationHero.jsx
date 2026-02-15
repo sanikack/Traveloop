@@ -10,7 +10,7 @@ const DestinationHero= ({destination})=>{
 
     return(
         <section className="destination-hero"
-        style={{backgroundImage:`url(http://localhost:8000/uploads/${HeroImage})`}}
+        style={{backgroundImage:`url(${process.env.REACT_APP_API_URL}/uploads/${HeroImage})`}}
         >
             <div className="overlay">
                 <h2>{destination.name}</h2>

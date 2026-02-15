@@ -70,7 +70,7 @@ const SuccessPage = () => {
             🏠 Back to Home
           </button>
 
-          <button onClick={()=> window.open(`http://localhost:8000/api/invoice/${bookingId}`,"_blank")} className="invoice-btn">
+          <button onClick={()=> window.open(`${process.env.REACT_APP_API_URL}/api/invoice/${bookingId}`,"_blank")} className="invoice-btn">
             📄 Download Invoice
           </button>
         </div>

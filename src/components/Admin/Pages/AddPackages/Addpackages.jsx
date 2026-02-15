@@ -37,7 +37,7 @@ const AddPackages= ()=>{
     //FETCH CATEGORIES AND DESTINATIONS
 
     useEffect(()=>{
-        fetch("http://localhost:8000/api/admin/categories",{
+        fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories`,{
             credentials: "include"
         })
         .then(res=> res.json())
@@ -46,7 +46,7 @@ const AddPackages= ()=>{
             setCategories(list.filter(c=> c.isActive))
         });
 
-        fetch("http://localhost:8000/api/admin/destination",{
+        fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination`,{
             credentials:"include"
         })
         .then(res=> res.json())
@@ -121,7 +121,7 @@ const AddPackages= ()=>{
             ))
 
 
-            const res= await fetch("http://localhost:8000/api/admin/packages",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages`,{
                 method: "POST",
                 body: Data
             })

@@ -46,7 +46,7 @@ const Contact= ()=>{
         try{
             setLoading(true)
 
-            const res= await fetch("http://localhost:8000/api/contact",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/contact`,{
                 method: "post",
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(formData)

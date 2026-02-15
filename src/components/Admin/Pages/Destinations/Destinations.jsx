@@ -22,7 +22,7 @@ const Destination = () => {
 
   const fetchDestinations= async ()=>{
   try{
-      const res= await fetch("http://localhost:8000/api/admin/destination");
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination`);
     const data= await res.json();
 
     if(!res.ok){
@@ -59,7 +59,7 @@ const Destination = () => {
     if(!showAlert.isConfirmed) return
 
     try{
-      const res= await fetch(`http://localhost:8000/api/admin/destination/${id}`,{
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination/${id}`,{
         method: "DELETE"
       })
 
@@ -131,7 +131,7 @@ const Destination = () => {
             <tr key={data._id}>
 
               <td>{data.image?.[0] ? (
-                <img src={`http://localhost:8000/uploads/${data.image[0]}`} alt={data.name} className="dest-img"/>
+                <img src={`${process.env.REACT_APP_API_URL}/uploads/${data.image[0]}`} alt={data.name} className="dest-img"/>
               ) : ( "No image")} </td>
 
               <td>{data.name}</td>

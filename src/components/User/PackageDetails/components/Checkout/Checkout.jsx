@@ -46,7 +46,7 @@ const Checkout = () => {
     try{
       setLoading(true);
 
-      const res= await fetch(`http://localhost:8000/api/booking/checkout/${booking._id}`,{
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/booking/checkout/${booking._id}`,{
         method: "POST",
         headers: {"Content-Type" : "application/json"},
         credentials: "include",
@@ -70,7 +70,7 @@ const Checkout = () => {
         return
       }
 
-      const paymentRes= await fetch("http://localhost:8000/api/payment/create-order",{
+      const paymentRes= await fetch(`${process.env.REACT_APP_API_URL}/api/payment/create-order`,{
         method: "POST",
         headers:{ "Content-Type" : "application/json"},
         credentials: "include",
@@ -138,7 +138,7 @@ const Checkout = () => {
       <div className="checkout-grid">
         {/* LEFT – Package Summary */}
         <div className="summary-card">
-          {Package.image ? (<img src={`http://localhost:8000/uploads/${Package.image}`} alt={Package.title}/>)
+          {Package.image ? (<img src={`${process.env.REACT_APP_API_URL}/uploads/${Package.image}`} alt={Package.title}/>)
           : "No image"}  
 
           <div className="summary-content">

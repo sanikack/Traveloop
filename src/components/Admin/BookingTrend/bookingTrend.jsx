@@ -12,7 +12,7 @@ const BookingTrend = () => {
 
     const fetchBookingTrend= async()=> {
         try{
-            const res= await fetch("http://localhost:8000/api/admin/dashboard/top-booking",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/dashboard/top-booking`,{
             credentials: "include"
         });
 

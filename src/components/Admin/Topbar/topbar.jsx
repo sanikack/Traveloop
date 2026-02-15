@@ -16,7 +16,7 @@ const Topbar = ()=>{
 
     const fetchSearch= async()=>{
         try{
-            const res= await fetch(`http://localhost:8000/api/admin/dashboard/search?q=${query}`,{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/dashboard/search?q=${query}`,{
                 credentials:"include"
             });
             const data= await res.json();
@@ -40,7 +40,7 @@ const Topbar = ()=>{
 
     const fetchNotifications= async()=> {
         try{
-            const res= await fetch("http://localhost:8000/api/admin/dashboard/notification",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/dashboard/notification`,{
                 credentials: "include"
             })
             const data= await res.json();
@@ -58,7 +58,7 @@ const Topbar = ()=>{
 
     const fetchAdminAvatar= async ()=>{
         try{
-            const res= await fetch("http://localhost:8000/api/admin/auth/profile",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/auth/profile`,{
                 credentials:"include"
             })
             const data= await res.json();
@@ -83,7 +83,7 @@ const Topbar = ()=>{
     },[])
 
     const logout= async()=>{
-        await fetch("http://localhost:8000/api/admin/auth/logout",{
+        await fetch(`${process.env.REACT_APP_API_URL}/api/admin/auth/logout`,{
             method: "post",
             credentials: "include"
         });

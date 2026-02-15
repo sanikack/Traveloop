@@ -3,6 +3,8 @@ import "./Settings.scss";
 import Swal from "sweetalert2";
 import { FaTrashAlt, FaCamera, FaEdit } from "react-icons/fa";
 
+
+
 const ProfileSettings = () => {
   const [user, setUser] = useState({});
   const [avatar, setAvatar] = useState(null);
@@ -10,14 +12,14 @@ const ProfileSettings = () => {
 
   // fetch logged-in user
   useEffect(() => {
-    fetch("http://localhost:8000/api/settings", { credentials: "include" })
+    fetch(`${process.env.REACT_APP_API_URL}/api/settings`, { credentials: "include" })
       .then(res => res.json())
       .then(data => setUser(data.user));
   }, []);
 
   // update name & phone
   const updateProfile = async () => {
-    const res = await fetch("http://localhost:8000/api/settings/update", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/settings/update`, {
       method: "PUT",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -40,7 +42,7 @@ const ProfileSettings = () => {
     const fd = new FormData();
     fd.append("avatar", avatar);
 
-    const res = await fetch("http://localhost:8000/api/settings/avatar", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/settings/avatar`, {
       method: "PUT",
       credentials: "include",
       body: fd
@@ -63,7 +65,7 @@ const ProfileSettings = () => {
 
     if (!confirm.isConfirmed) return
 
-    await fetch("http://localhost:8000/api/settings/delete", {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/settings/delete`, {
       method: "DELETE",
       credentials: "include"
     });

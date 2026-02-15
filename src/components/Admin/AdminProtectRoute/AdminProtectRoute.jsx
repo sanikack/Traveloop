@@ -7,7 +7,7 @@ const AdminProtectRoute= ({ children })=>{
 
 
     useEffect(()=>{
-        fetch("http://localhost:8000/api/admin/auth/check",{
+        fetch(`${process.env.REACT_APP_API_URL}/api/admin/auth/check`,{
             credentials:"include"
         })
         .then(res=>{

@@ -2,24 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./testimonials.scss"
 import { Star } from "lucide-react";
 
+
 const Testimonials= ()=>{
-
-    //     {
-    //         name: "jennyfer",
-    //         place: "Chennai",
-    //         review:
-    //         "Very smooth and memorable trip, Highly recommented for family tours.",
-    //         image: "./images/testimonials/user03.jpg",
-    //     },
-
-    //     {
-    //         name: "sanjay",
-    //         place: "Mumbai",
-    //         review:
-    //         "kerala is beautiful, and services from this team was absolutly great.",
-    //         image: "./images/testimonials/user04.jpg",
-    //     },
-    // ];
 
     const [review, setReview]= useState([]);
     const [index, setindex]= useState(0);
@@ -31,7 +15,7 @@ const Testimonials= ()=>{
 
     const fetchReviews= async()=>{
         try{
-            const res= await fetch("http://localhost:8000/api/review");
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/review`);
             const data= await res.json();
 
             if(res.ok){

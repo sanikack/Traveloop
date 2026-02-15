@@ -33,7 +33,7 @@ const Adminprofile= () =>{
 
     const fetchProfile= async()=> {
         try{
-            const res= await fetch("http://localhost:8000/api/admin/auth/profile",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/auth/profile`,{
                 credentials:"include"
             })
             const data= await res.json();
@@ -74,7 +74,7 @@ const Adminprofile= () =>{
         formdata.append("avatar", file)
 
         try{
-            const res= await fetch("http://localhost:8000/api/admin/auth/profile/avatar",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/auth/profile/avatar`,{
                 method:"put",
                 credentials:"include",
                 body: formdata
@@ -99,7 +99,7 @@ const Adminprofile= () =>{
     //SAVE UPDATES
     const saveProfile= async()=>{
         try{
-            const res= await fetch("http://localhost:8000/api/admin/auth/profile",{
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/auth/profile`,{
                 method:"put",
                 headers: { "Content-Type" : "application/json" },
                 credentials: "include",
