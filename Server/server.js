@@ -41,6 +41,8 @@ app.use(cors({
     credentials: true
 }))
 
+console.log(process.env.FRONTEND_URL);
+
 
 app.use(express.json())
 app.use(cookieParser())
@@ -59,14 +61,14 @@ Database()
 
 //*****ADMIN SIDE *****//
 app.use("/api/admin/auth", AdminAuthRoute )
-app.use("/api/admin/categories", AdminAuth, CategoryRoutes)
+app.use("/api/admin/categories", CategoryRoutes)
 app.use("/api/admin/destination", DestinationRoutes)
 app.use("/api/admin/packages", PackageRoute)
 app.use("/api/admin/user", UserRoutes)
 app.use("/api/admin/bookings", BookingRoute)
 app.use("/api/admin/payment", PaymentsRoutes )
 app.use("/api/admin/subscribe", SubscribeRouter )
-app.use("/api/admin/messages", AdminAuth, MessageRoute )
+app.use("/api/admin/messages", MessageRoute )
 app.use("/api/admin/dashboard", DashboardRoute )
 app.use("/api/admin/reviews", AdminReviewRoutes )
 
