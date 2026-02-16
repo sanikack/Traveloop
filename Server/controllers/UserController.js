@@ -62,7 +62,7 @@ const Login= async (req,res)=>{
         const {email, password}= req.body;
 
         if(!email || !password){
-            return res.status(400).json({ field:"email", success: true, message:"All fields are required."})
+            return res.status(400).json({ field:"email", success: false, message:"All fields are required."})
         }
 
         const User= await user.findOne({email});
@@ -90,8 +90,8 @@ const Login= async (req,res)=>{
         //cookie creation
         res.cookie("token", token,{
             httpOnly: true,
-            secure: false,
-            sameSite: "lax",
+            secure: true,        //*******for https*********
+            sameSite: "none",     //*******for cross-domain*********
             maxAge: 7 * 24 * 60 * 60 * 1000
       });
 
@@ -501,8 +501,8 @@ const LogOut= (req,res)=>{
   try{
     res.clearCookie("token",{
       httpOnly:true,
-      sameSite:"lax",
-      secure:false
+      sameSite:"none",
+      secure:true
     });
 
     res.status(200).json({

@@ -1125,8 +1125,8 @@ const AdminLog= async(req,res)=>{
 
             res.cookie("adminToken",token,{
                 httpOnly:true,
-                sameSite: "lax",
-                secure: false,
+                sameSite: "none",
+                secure: true,
                 path:"/"
             });
 
@@ -1434,8 +1434,8 @@ const AdminLogout= async(req,res)=>{
     try{
         res.clearCookie("adminToken",{
             httpOnly:true,
-            sameSite:"lax",
-            secure:false
+            sameSite:"none",
+            secure:true
         });
 
         res.status(200).json({
