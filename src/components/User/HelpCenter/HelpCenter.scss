@@ -1,0 +1,77 @@
+.help-container {
+  max-width: 950px;
+  margin: 60px auto;
+  padding: 20px;
+
+  h1 {
+    background: linear-gradient(90deg, rgb(4, 128, 4),rgb(51, 219, 51),rgb(79, 230, 79));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    color: #555;
+    margin-bottom: 30px;
+  }
+}
+
+/* quick blocks */
+
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.help-card {
+  background: #f3f9ff;
+  padding: 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.help-card:hover {
+  background: #e1f3e1;
+  transform: translateY(-3px);
+}
+
+/* FAQ */
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-q {
+  padding: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.faq-a {
+  padding: 0 16px 16px;
+  color: #555;
+}
+
+/* support box */
+
+.support-box {
+  margin-top: 40px;
+  background: #f7fff7;
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+/* responsive */
+
+@media (max-width: 700px) {
+  .help-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

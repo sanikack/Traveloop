@@ -47,6 +47,10 @@ import ProfileSettings from "./components/User/Settings/Settings";
 import AdminProtectRoute from "./components/Admin/AdminProtectRoute/AdminProtectRoute"
 import AdminNotifications from "./components/Admin/Notification/Notification";
 import AdminProfile from "./components/Admin/Pages/AdminProfile/AdminProfile";
+import AboutUs from "./components/User/AboutUs/AboutUs";
+import TermsConditions from "./components/User/Terms&Conditions/Terms&Conditions";
+import PrivacyPolicy from "./components/User/Privacy&Policy/Privacy&Policy";
+import HelpCenter from "./components/User/HelpCenter/HelpCenter";
 
 
 console.log("ENV TEST:", process.env.RAZORPAY_KEY_ID);
@@ -95,6 +99,11 @@ const App = ()=>{
         <Route path="/destination/:slug" element={<DestinationDetails/>}/>
         <Route path="/bookings" element={<BookingsPage/>}/>
         <Route path="/settings" element={<ProfileSettings/>}/>
+        <Route path="/aboutUs" element={<AboutUs/>}/>
+        <Route path="/service" element={<Services/>}/>
+        <Route path="/termsconditions" element={<TermsConditions/>}/>
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
+        <Route path="/help" element={<HelpCenter/>}/>
         </Route>
 
         <Route path="/login" element={<Login/>}/>

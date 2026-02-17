@@ -1,0 +1,68 @@
+.about-page {
+  .about-hero {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #e8f5e9, #f4f3f3);
+
+    h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, rgb(6, 77, 6), rgb(8, 171, 8), rgb(92, 223, 85));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .about-section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+
+    h2 {
+      color: green;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #333;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      color: #333;
+      list-style: none;
+      
+    }
+  }
+
+  .alt {
+    background: #f7fafc;
+  }
+
+  .about-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background: #f0fdf4;
+    text-align: center;
+  }
+
+  .about-cta {
+    text-align: center;
+    padding: 60px;
+
+    .visit {
+      background: linear-gradient(90deg, rgb(7, 114, 7), rgb(27, 210, 27), rgb(88, 219, 88));
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 0;
+
+      &:hover {
+        border-radius: 30px;
+      }
+    }
+  }
+}
