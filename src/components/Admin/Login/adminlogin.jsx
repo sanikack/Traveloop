@@ -8,6 +8,7 @@ const Adminlog= ()=>{
     email:"",
     password:""
   });
+  const [loading, setLoading]= useState(false);
 
   const navigate= useNavigate();
   
@@ -32,7 +33,9 @@ const Adminlog= ()=>{
 
   const handleSubmit= async(e)=>{
     e.preventDefault();
+    setLoading(true)
 
+    try{
     if(!formdata.email || !formdata.password){
     showAlert("error", "All fields are required")
     return
@@ -52,12 +55,17 @@ const Adminlog= ()=>{
 
       setTimeout(() => {
         navigate("/admin/dashboard", {replace:true})
-      }, 2500);
+      }, 1500);
     }
     else{
       showAlert("error",data.message)
     }
   }
+  finally{
+    setLoading(false);
+  }
+  }
+
     return(
         <div className="admin-container">
             <div className="adminlog-wraper">
@@ -71,7 +79,8 @@ const Adminlog= ()=>{
 
                     <label>Password</label>
                     <input type="password" name="password" placeholder="Enter password" onChange={handleChange} />
-                    <button className="adminBtn">Login</button>
+                    <button className="adminBtn" disabled={loading}>
+                      {loading ? "Loggin in..." : "Login"}</button>
                   </div>
                 </form>
 

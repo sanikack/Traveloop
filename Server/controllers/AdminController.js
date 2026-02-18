@@ -1093,7 +1093,7 @@ const AdminLog= async(req,res)=>{
         const{email,password}= req.body;
 
         if (!email || !password) {
-  return res.status(400).json({
+    return res.status(400).json({
     success: false,
     message: "Email and password required"
   });
@@ -1102,7 +1102,7 @@ const AdminLog= async(req,res)=>{
         //check admin exists
         const admin= await AdminSchema.findOne({email});
         if(!admin){
-            res.status(401).json({
+            return res.status(401).json({
                 success:false,
                 message:"Invalid Credentials"
             })
@@ -1110,7 +1110,7 @@ const AdminLog= async(req,res)=>{
 
         const ComparePassword= await bcrypt.compare(password, admin.password);
         if(!ComparePassword){
-            res.status(400).json({
+            return res.status(400).json({
                 success:false,
                 message:"Invalid email or password"
             });

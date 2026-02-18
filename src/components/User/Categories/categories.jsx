@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./categories.scss"
 import { Link } from "react-router-dom";
+const CARD_WIDTH= 260;
 
 const Categories = ()=>{
 
@@ -15,10 +16,10 @@ const Categories = ()=>{
         const res= await fetch(`${process.env.REACT_APP_API_URL}/api/category`);
         const data= await res.json();
 
-        if(res.ok){
-            const activeCategories= data.categories.filter((cat)=> cat.isActive === true);
-
+        if(res.ok && data.categories){
+            const activeCategories= data.categories.filter(cat => cat.isActive === true);
             setCategories(activeCategories);
+            setindex(0)  //reset index after reload index 5 aayal index 0 aayi set cheyyum
         }
        }
        catch(err){
@@ -32,27 +33,40 @@ const Categories = ()=>{
         fetchCategories()
     },[]);
 
+    //DUPLICATE FOR INIFINIT EFFECT
+    const loopedCategories= [...categories,...categories]
+
 
     // AUTO SLIDE
     useEffect(()=>{
-        if(categories.length === 0) return
+        if(!categories.length) return
 
         const intervel= setInterval(() => {
-            setindex((pre)=> (pre+1) % categories.length)
+            setindex(pre=> pre+1)
         }, 4000);
 
         return()=> clearInterval(intervel)
 
-    },[categories.length]);
+    },[categories]);
+
+
+    //RESET INDEX WHEN CROSSED ORIGINAL LENGTH
+    useEffect(()=>{
+        if(index >= categories.length){
+            setTimeout(() => {
+                setindex(0);
+            }, 500);
+        }
+    },[index, categories.length])
 
 
     //BUTTON CONTROLS
     const goNext= ()=>{
-        setindex((pre)=> (pre+1) % categories.length)
+        setindex(pre => (pre+1) % categories.length)
     }
 
     const goPrev= ()=>{
-        setindex((pre)=> pre === 0 ? categories.length-1 : pre-1)
+        setindex(pre => pre === 0 ? categories.length-1 : pre-1)
     };
 
   
@@ -68,11 +82,12 @@ const Categories = ()=>{
        
             <div className="carousel">
               <div className="carousel-track" 
-              style={{transform: `translateX(-${index * 260}px)`}}
+              style={{transform: `translateX(-${index * CARD_WIDTH}px)`}}
+    
               >
 
-{categories.map((cat) => (
-    <Link key={cat._id} to={`/categories/${cat.slug}`}>
+{loopedCategories.map(cat => (
+    <Link key={cat._id} to={`/categories/${cat.slug}`} className="card-link">
   <div className="carousel-card">
     <img src={`${process.env.REACT_APP_API_URL}/uploads/${cat.image}`} alt={cat.name} />
     <span>{cat.name}</span>

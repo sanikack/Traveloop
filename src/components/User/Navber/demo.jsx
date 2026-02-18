@@ -116,7 +116,7 @@ const Navbar = () => {
           <ul className={`navbar__links ${menuOpen ? "open" : ""}`}>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/destinations">Destination</Link></li>
-            <li><Link to="/package">Packages</Link></li>
+            <li><Link to="/packages">Packages</Link></li>
             <li><Link to="/contact">Contact</Link></li>
 
             {!user && (

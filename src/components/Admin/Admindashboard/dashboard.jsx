@@ -1,7 +1,7 @@
 
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Topbar from "../Topbar/topbar";
 import Sidebar from "../Sidebar/sidebar"
 import DashboardCards from "../Cards/card";
@@ -14,6 +14,13 @@ import PaymentStatusCard from "../PaymentStatusCard/PaymentStatusCard";
 
 const AdminDashboard= ()=>{
     const [isOpen, SetOpen]= useState(true);
+
+    useEffect(()=>{
+      window.history.pushState(null, "", window.location.href);
+      window.onpopstate= ()=>{
+        window.history.go(1)
+      }
+    },[])
   return(
     <>
     <Topbar/>

@@ -1,8 +1,10 @@
 import React from "react";
 import "./superbanner.scss"
+import { useNavigate } from "react-router-dom";
 
 
 const Superbanner= ()=>{
+    const navigate= useNavigate();
     return(
         <section className="super-banner">
             <video
@@ -18,7 +20,7 @@ const Superbanner= ()=>{
                 <div className="super-content">
                     <h1 className="animate-text">Explore The Beauty Of Kerala</h1>
                     <p className="reveal-text delay">Discover amazing destinations and unforgattable journeys</p>
-                    <button className="explore-btn">Start Your Journey</button>
+                    <button className="explore-btn" onClick={()=>navigate("/packages")}>Start Your Journey</button>
                 </div>
              </div>
         </section>
