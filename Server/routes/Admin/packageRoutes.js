@@ -21,22 +21,13 @@ router.post("/", (req,res,next) =>{
     next()
 })
 },
-
-(err,req,res,next)=>{
-    if(err){
-        console.log("MULTER ERROR:", err.message);
-      return res.status(400).json({ error: err.message });
-    }
-
-    next()
-},
  CreatePackage )
 
 router.get("/:id", GetSinglePackage );
 
 router.put("/:id", Upload.fields([
     {name:"image", maxCount:1},
-    {name:"gallery", maxCount:10}
+    {name:"gallery", maxCount:10},
 ])(req,res,function(err){
     if(err){
         console.log("MULTER ERROR:", err.message);
