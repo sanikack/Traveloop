@@ -84,6 +84,12 @@ const AddPackages= ()=>{
     };
 
 
+     const handleGalleryChange= (e)=> {
+            const files= Array.from(e.target.files);
+            setGallery(prev => [...prev,...files])
+        }
+
+
     const addItineraryDay= ()=>{
         setItinerary([
             ...itinerary,
@@ -123,7 +129,8 @@ const AddPackages= ()=>{
 
             const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages`,{
                 method: "POST",
-                body: Data
+                body: Data,
+                credentials:"include"
             })
             const data= await res.json();
 
@@ -173,7 +180,7 @@ const AddPackages= ()=>{
 
                  <div className="form-group">
                     <label>Price</label>
-                    <input type="number" name="price" value={formData.price} onChange={handlechange} placeholder="Place"/>
+                    <input type="number" name="price" value={formData.price} onChange={handlechange} placeholder="Price"/>
                 </div>
 
                 <div className="form-group">
@@ -219,8 +226,9 @@ const AddPackages= ()=>{
                 <div className="form-group">
                     <label>Main Image</label>
                     <input type="file" accept="image/*" onChange={(e)=> setImage(e.target.files[0])} />
+
                     <label>Gallery Image</label>
-                    <input type="file" accept="image/*" multiple onChange={(e)=> setGallery([...e.target.files])} />
+                    <input type="file" multiple accept="image/*" onChange={handleGalleryChange} />
                 </div>
 
                 <div className="form-group">

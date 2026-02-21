@@ -1,4 +1,4 @@
-const { data } = require("react-router-dom");
+// const { data } = require("react-router-dom");
 const categoriesSchema= require("../models/categoriesSchema");
 const destinationSchema = require("../models/destinationSchema");
 const UserSchema= require("../models/UserSchema")
@@ -483,22 +483,61 @@ const DeleteUser= async (req,res)=>{
 
 
 const CreatePackage= async (req,res)=>{
+    console.log("FILES:", req.files);
+    console.log("CREATE PACKAGE HIT"); 
     try{
         const {title, location, nights, days, price, destination, type,
               description, itinerary, inclusion, exclusion, status, category, featured}= req.body;
 
-        const image= req.files?.image?.[0]?.filename;
+        let imageUrl= "";
+        //UPLOAD GALLERY IMAGES
+        let galleryUrl= [];
 
-        const gallery = req.files?.gallery
-  ? req.files.gallery.map(file => file.filename)
-  : [];
-
-
-        if(!title || !location || nights === undefined || !price || !category || !image || !destination || !category){
+        if(!title || !location || nights === undefined || !price || !category || !destination || !category || !req.files?.image){
            return res.status(400).json({
                 success: false,
                 message: "All fields are required"
             })
+        }
+
+        //MAIN IMAGE UPLOAD
+        if(req.files?.image){
+            console.log("Uploading to cloudinary:", req.files.image[0].path);
+        const mainImageUpload= await cloudinary.uploader.upload(
+            req.files.image[0].path,
+            {folder: "packages"}
+        )
+        imageUrl= mainImageUpload.secure_url
+
+        //DELETE LOCAL FILE AFTER UPLOAD
+        fs.unlinkSync(req.files.image[0].path)
+    };
+
+
+    if(!imageUrl){
+        return res.status(400).json({
+            success:false,
+            message:"image upload failed."
+        })
+    }
+
+       
+       //UPLOAD GALLERY IMAGES
+        if(req.files.gallery && req.files.gallery.length > 0){
+            const galleryUploads= await Promise.all(
+                req.files.gallery.map(file=> 
+                    cloudinary.uploader.upload(file.path, {
+                        folder: "packages/gallery"
+                    })
+                )
+            )
+            galleryUrl= galleryUploads.map(img=> img.secure_url);
+
+            //DELETE LOCAL GALLERY FILES
+            req.files.gallery.forEach(file =>{
+                fs.unlinkSync(file.path)
+            })
+
         }
 
         const Package= await PackageSchema.create({
@@ -515,9 +554,9 @@ const CreatePackage= async (req,res)=>{
             itinerary: itinerary ? JSON.parse(itinerary) : [],
             inclusion: inclusion ? JSON.parse(inclusion) : [],
             exclusion: exclusion ? JSON.parse(exclusion) : [],
-            image,
+            image: imageUrl,// store cloudinary url
             status,
-            gallery
+            gallery: galleryUrl
         })
 
         res.status(201).json({
@@ -593,11 +632,9 @@ const UpdatePackage= async (req,res)=>{
             nights: req.body.nights,
             price: req.body.price,
             type: req.body.type?.trim(),
-            // category: req.body.category,
             featured: req.body.featured === "true",
             status: req.body.status,
             description: req.body.description,
-            // destination: req.body.destination
         }
 
         if (req.body.category && req.body.category !== "undefined") {
@@ -625,17 +662,40 @@ if (req.body.destination && req.body.destination !== "undefined") {
             updateData.itinerary= JSON.parse(req.body.itinerary)
         }
 
-        //main image
+        //if new main image uploaded
         if(req.files?.image){
-            updateData.image= req.files.image[0].filename
+            const uploadedImage= await cloudinary.uploader.upload(
+                req.files.image[0].path,
+                {folder:"packages"}
+            )
+            updateData.image= uploadedImage.secure_url;
+
+            //DELETE LOCAL IMAGE FILES
+                fs.unlinkSync(req.files.image[0].path);
+            
+
         }
 
         let UpdateQuary= { $set: updateData }
 
-        //gallery image
+        //if new gallery image uploaded
         if(req.files?.gallery){
-            const galleryimages= req.files.gallery.map((file)=> file.filename);
-            UpdateQuary.$push= {gallery:{ $each: galleryimages}}
+            const galleryUploads= await Promise.all(
+                req.files.gallery.map(file =>
+                    cloudinary.uploader.upload(file.path,
+                        {folder:"packages/gallery"}
+                    )
+                )
+            )
+            const galleryUrl= galleryUploads.map(img=> img.secure_url);
+
+            UpdateQuary.$push= {gallery:{ $each: galleryUrl}}
+
+            //DELETE IMAGE AFTER UPLOAD
+            req.files.gallery.forEach(file => {
+                fs.unlinkSync(file.path);
+            });
+
         }
 
         

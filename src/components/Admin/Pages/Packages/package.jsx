@@ -24,7 +24,9 @@ const AdminPackage= ()=>{
 
   const fetchPackages= async ()=>{
     try{
-      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages`);
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages`,{
+        credentials:"include"
+      });
       const data= await res.json();
 
       if(res.ok){
@@ -122,7 +124,8 @@ const filteredPackages= packages.filter(
                   {filteredPackages.map((pkg)=>(
                     <tr key={pkg._id}>
                       <td className="pkg-name">
-                        {pkg.image ? (<img src={`${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} alt={pkg.title}/>) 
+                        {pkg.image ? (<img src={ pkg.image.startsWith("http") ? pkg.image
+                        : `${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} alt={pkg.title}/>) 
                         : ("No image")}
                         </td>
                         

@@ -67,7 +67,8 @@ const Packages = () => {
       <div className="grid">
         {packages.map((pkg) => (
           <div className="package-card" key={pkg._id}>
-            <img src={`${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} alt={pkg.title} className="bg-img" />
+            <img src={pkg.image.startsWith("http")? pkg.image 
+            : `${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} alt={pkg.title} className="bg-img" />
 
             <div className="overlay"></div>
 

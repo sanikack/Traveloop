@@ -4,10 +4,24 @@ const router= express.Router();
 const Upload= require("../../Middleware/Multer")
 
 router.get("/", GetPackages);
-router.post("/", Upload.fields([
+router.post("/", (req,res,next) =>{
+    console.log("ROUTE HIT");
+    next();
+},
+Upload.fields([
     {name:"image", maxCount:1},
-    {name:"gallery", maxCount:10}
-]), CreatePackage )
+    {name:"gallery", maxCount:10},
+    
+]),
+(err,req,res,next)=>{
+    if(err){
+        console.log("MULTER ERROR:", err.message);
+      return res.status(400).json({ error: err.message });
+    }
+
+    next()
+},
+ CreatePackage )
 
 router.get("/:id", GetSinglePackage );
 

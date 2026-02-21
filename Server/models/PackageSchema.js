@@ -41,7 +41,7 @@ const PackageSchema= new mongoose.Schema({
         type: String,
     },
 
-    gallery:[ String],
+    gallery:[String],
 
     itinerary:[{
         day: Number,

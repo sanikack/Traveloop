@@ -1,6 +1,12 @@
 const multer= require("multer")
 const path= require("path");
+const fs= require("fs");
 
+
+
+if(!fs.existsSync("uploads")){
+    fs.mkdirSync("uploads")
+}
 
 const storage= multer.diskStorage({
     destination: (req,file,cb) => {
@@ -13,6 +19,7 @@ const storage= multer.diskStorage({
 
 
 const fileFilter= (req,file,cb)=>{
+    console.log("FILE RECEIVED:", file.mimetype);
     if(file.mimetype.startsWith("image")){
         cb(null, true)
     }

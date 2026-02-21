@@ -122,6 +122,12 @@ const EditPackages= ()=>{
         setItinerary(updated);
      }
 
+     //GALLERY IMAGE SETUP
+     const handleGalleryChange= (e)=>{
+        const files= Array.from(e.target.files);
+        setGallery(prev=> [...prev, ...files])
+     }
+
 
     //UPDATE SECTION
 
@@ -248,7 +254,7 @@ const EditPackages= ()=>{
 
                 <div className="pkgSection">
                     <label>Gallery Image</label>
-                    <input type="file" multiple accept="image/*" onChange={(e)=> setGallery([...e.target.files])} />
+                    <input type="file" multiple accept="image/*" onChange={handleGalleryChange} />
                 </div>
 
                 <div className="pkgSection">
