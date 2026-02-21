@@ -493,7 +493,7 @@ const CreatePackage= async (req,res)=>{
         //UPLOAD GALLERY IMAGES
         let galleryUrl= [];
 
-        if(!title || !location || nights === undefined || !price || !category || !destination || !category || !req.files?.image){
+        if(!title || !location || nights === undefined || !price || !category || !destination || !req.files?.image){
            return res.status(400).json({
                 success: false,
                 message: "All fields are required"
