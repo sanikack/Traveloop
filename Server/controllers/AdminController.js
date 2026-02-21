@@ -525,18 +525,16 @@ const CreatePackage= async (req,res)=>{
        //UPLOAD GALLERY IMAGES
         if(req.files.gallery && req.files.gallery.length > 0){
             const galleryUploads= await Promise.all(
-                req.files.gallery.map(file=> 
-                    cloudinary.uploader.upload(file.path, {
+                req.files.gallery.map(async (file)=> {
+                    const res= await cloudinary.uploader.upload(file.path, {
                         folder: "packages/gallery"
                     })
+                    fs.unlinkSync(file.path);
+                    return res.secure_url;
+                }
                 )
             )
-            galleryUrl= galleryUploads.map(img=> img.secure_url);
-
-            //DELETE LOCAL GALLERY FILES
-            req.files.gallery.forEach(file =>{
-                fs.unlinkSync(file.path)
-            })
+            galleryUrl= galleryUploads;
 
         }
 
