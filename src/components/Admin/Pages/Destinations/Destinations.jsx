@@ -131,7 +131,7 @@ const Destination = () => {
             <tr key={data._id}>
 
               <td>{data.image?.[0] ? (
-                <img src={`${process.env.REACT_APP_API_URL}/uploads/${data.image[0]}`} alt={data.name} className="dest-img"/>
+                <img src={data.image?.[0]} alt={data.name} className="dest-img"/>
               ) : ( "No image")} </td>
 
               <td>{data.name}</td>

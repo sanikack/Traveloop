@@ -202,21 +202,33 @@ const CreateDestination = async (req,res)=>{
                 message: "All fields are required"
             })
         }
-        const image= req.file ? [req.file.filename] : [];
+        
+        let imageUrl= [];
 
-        if(image.length === 0){
-            return res.status(400).json({
-                success: false,
-                message: "At least one image is required"
-            })
+        if(req.file){
+            const result= await cloudinary.uploader.upload(req.file.path, {
+                folder: "destination"
+            });
+            imageUrl = [result.secure_url];
+
+            //DELETE LOCAL FILE
+            fs.unlinkSync(req.file.path)
         }
+
+        // if(image.length === 0){
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: "At least one image is required"
+        //     })
+        // }
+
         const destinations= await destinationSchema.create({
             name,
             description,
             district,
             category,
             specialities: specialities?JSON.parse(specialities) : [],
-            image,
+            image: imageUrl,
             isActive
         });
 
@@ -283,7 +295,16 @@ const GetDestinationById= async (req,res)=>{
 const UpdateDestination= async(req,res)=>{
     try{
         const{name, description, district, isActive, category, specialities}= req.body;
-        const image= req.file ? [req.file.filename] : undefined
+       
+        let image;
+
+        if(req.file){
+            const result= await cloudinary.uploader.upload(req.file.path,{
+                folder: "destination"
+            });
+            image= [result.secure_url];
+            fs.unlinkSync(req.file.path)
+        }
 
         const updatedData= {
             name,
