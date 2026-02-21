@@ -42,11 +42,10 @@ const Destinations= ()=>{
         {destination.map((place)=>(
           <div className="destination-card" key={place._id}>
             <div className="image-container">
-              {place.image ? (<img src={pkg.image.startsWith("http") ? pkg.image
-                : `${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} alt={pkg.title}/>)
-              :("No Image")}
+              {place.image?.[0] && (<img src={pkg.image[0].startsWith("http") ? pkg.image[0]
+                : `${process.env.REACT_APP_API_URL}/uploads/${pkg.image[0]}`} alt={pkg.title}/>)
+             }
 
-            <img src={place.image?.[0]} alt={place.name}/>
             <div className="destination-info">
               <h3>{place.name}</h3>
               <p>{place.description}</p>

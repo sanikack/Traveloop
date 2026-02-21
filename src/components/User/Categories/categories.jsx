@@ -89,8 +89,8 @@ const Categories = ()=>{
 {loopedCategories.map(cat => (
     <Link key={cat._id} to={`/categories/${cat.slug}`} className="card-link">
   <div className="carousel-card">
-    {cat.image ? (<img src={cat.image.startsWith("http") ? cat.image :
-    `${process.env.REACT_APP_API_URL}/uploads/${cat.image}`} alt={cat.name}/>) : ("No Image")}
+    {cat.image && (<img src={cat.image.startsWith("http") ? cat.image :
+    `${process.env.REACT_APP_API_URL}/uploads/${cat.image}`} alt={cat.name}/>)}
     <span>{cat.name}</span>
               </div>
             </Link>            

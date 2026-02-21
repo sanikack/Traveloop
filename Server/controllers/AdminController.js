@@ -25,7 +25,6 @@ const createCategory= async (req, res)=>{
         const {name, isActive, specialities, shortdescription,
             bestSeason, idealFor, tripStyle }= req.body;
 
-        // const image= req.file ? req.file.filename : null;
         let image="";
 
         if(!name){
@@ -236,13 +235,6 @@ const CreateDestination = async (req,res)=>{
             //DELETE LOCAL FILE
             fs.unlinkSync(req.file.path)
         }
-
-        // if(image.length === 0){
-        //     return res.status(400).json({
-        //         success: false,
-        //         message: "At least one image is required"
-        //     })
-        // }
 
         const destinations= await destinationSchema.create({
             name,
