@@ -25,7 +25,8 @@ const createCategory= async (req, res)=>{
         const {name, isActive, specialities, shortdescription,
             bestSeason, idealFor, tripStyle }= req.body;
 
-        const image= req.file ? req.file.filename : null;
+        // const image= req.file ? req.file.filename : null;
+        let image="";
 
         if(!name){
            return res.status(400).json({
@@ -42,6 +43,16 @@ const createCategory= async (req, res)=>{
                 message: "Category already exists."
             })
         };
+
+        if(req.file){
+            const result= await cloudinary.uploader.upload(req.file.path, {
+                folder: "category"
+            });
+            image= result.secure_url;
+
+            // delete local file
+            fs.unlinkSync(req.file.path);
+        }
 
         const category= await categoriesSchema.create({
             name,
@@ -119,7 +130,18 @@ const UpdateCategory= async (req,res)=>{
         const {name, isActive, shortdescription, bestSeason,
                idealFor, tripStyle, specialities} = req.body
 
-        const image = req.file ? req.file.filename : undefined
+        // const image = req.file ? req.file.filename : undefined
+        let image= "";
+
+        if(req.file){
+            const result= await cloudinary.uploader.upload(req.file.path, {
+                folder: "category"
+            });
+            image= result.secure_url;
+
+            //DELETE LOCAL FILE
+            fs.unlinkSync(req.file.path)
+        }
 
         const updatedData= {
             name,

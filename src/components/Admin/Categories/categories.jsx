@@ -102,7 +102,9 @@ const AdminCategories = () => {
         <tbody>
           {categories.map(cat => (
             <tr key={cat._id}>
-              <td>{cat.image ? (<img src={`${process.env.REACT_APP_API_URL}/uploads/${cat.image}`} 
+              <td>{cat.image ? (<img src={cat.image.startsWith("http") ? cat.image :
+                `${process.env.REACT_APP_API_URL}/uploads/${cat.image}`
+              } 
               alt={cat.name} className="category-img"/>)
               : ("No image")
             }</td>
