@@ -15,7 +15,7 @@ const Destinations= ()=>{
       const data= await res.json();
 
       if(res.ok){
-        const activeDestinations= data.destinations.filter((cat)=> cat.isActive === true )
+        const activeDestinations= data.destinations.filter((cat)=> Boolean(cat.isActive) )
 
         setDestination(activeDestinations);
       }
@@ -43,13 +43,13 @@ const Destinations= ()=>{
           <div className="destination-card" key={place._id}>
             <div className="image-container">
               {place.image && (<img src={place.image.startsWith("http") ? place.image
-                : `${process.env.REACT_APP_API_URL}/uploads/${place.image}`} alt={place.title}/>)
+                : `${process.env.REACT_APP_API_URL}/uploads/${place.image}`} alt={place.name}/>)
              }
 
             <div className="destination-info">
               <h3>{place.name}</h3>
               <p>{place.description}</p>
-              <button onClick={()=> navigate(`/destination/${place.slug}`)}>Explore More</button>
+              <button onClick={()=> navigate(`/destination/${place._id}`)}>Explore More</button>
             </div>
           </div>
          </div>

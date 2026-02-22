@@ -241,9 +241,11 @@ const CreateDestination = async (req,res)=>{
             description,
             district,
             category,
-            specialities: specialities?JSON.parse(specialities) : [],
+            specialities: specialities? Array.isArray(specialities)? specialities
+            :JSON.parse(specialities) : [],
             image: imageUrl,
-            isActive
+            isActive,
+            slug
         });
 
         res.status(201).json({
