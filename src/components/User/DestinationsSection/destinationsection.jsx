@@ -15,7 +15,7 @@ const Destinations= ()=>{
       const data= await res.json();
 
       if(res.ok){
-        const activeDestinations= data.destinations.filter((cat)=> Boolean(cat.isActive) )
+        const activeDestinations= data.destinations.filter((cat)=> cat.isActive === true || cat.isActive === "true" )
 
         setDestination(activeDestinations);
       }

@@ -245,7 +245,6 @@ const CreateDestination = async (req,res)=>{
             :JSON.parse(specialities) : [],
             image: imageUrl,
             isActive,
-            slug
         });
 
         res.status(201).json({
