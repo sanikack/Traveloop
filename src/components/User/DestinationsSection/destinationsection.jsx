@@ -43,7 +43,7 @@ const Destinations= ()=>{
           <div className="destination-card" key={place._id}>
             <div className="image-container">
               {place.image && (<img src={place.image.startsWith("http") ? place.image
-                : `${process.env.REACT_APP_API_URL}/uploads/${place.image[0]}`} alt={place.title}/>)
+                : `${process.env.REACT_APP_API_URL}/uploads/${place.image}`} alt={place.title}/>)
              }
 
             <div className="destination-info">

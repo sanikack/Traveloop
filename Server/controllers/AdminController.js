@@ -310,13 +310,13 @@ const UpdateDestination= async(req,res)=>{
     try{
         const{name, description, district, isActive, category, specialities}= req.body;
        
-        let image;
+        let image= "";
 
         if(req.file){
             const result= await cloudinary.uploader.upload(req.file.path,{
                 folder: "destination"
             });
-            image= [result.secure_url];
+            image= result.secure_url;
             fs.unlinkSync(req.file.path)
         }
 
