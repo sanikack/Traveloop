@@ -224,13 +224,13 @@ const CreateDestination = async (req,res)=>{
             })
         }
         
-        let imageUrl= [];
+        let imageUrl= "";
 
         if(req.file){
             const result= await cloudinary.uploader.upload(req.file.path, {
                 folder: "destination"
             });
-            imageUrl = [result.secure_url];
+            imageUrl = result.secure_url;
 
             //DELETE LOCAL FILE
             fs.unlinkSync(req.file.path)

@@ -130,9 +130,9 @@ const Destination = () => {
            {destinations.map((data) => (
             <tr key={data._id}>
 
-              <td>{data.image?.[0] ? (
-                <img src={data.image[0].startsWith("http") ? data.image[0] :
-                  `${process.env.REACT_APP_API_URL}/uploads/${data.image[0]}`} alt={data.name} className="dest-img"/>
+              <td>{data.image ? (
+                <img src={data.image.startsWith("http") ? data.image :
+                  `${process.env.REACT_APP_API_URL}/uploads/${data.image}`} alt={data.name} className="dest-img"/>
               ) : ( "No image")} </td>
 
               <td>{data.name}</td>

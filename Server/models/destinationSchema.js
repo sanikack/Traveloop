@@ -30,10 +30,10 @@ const DestinationSchema= new mongoose.Schema({
         }
     ],
 
-    image:[{
+    image:{
         type:String,
         required: true
-    }],
+    },
 
     category:{
         type: mongoose.Schema.Types.ObjectId,
