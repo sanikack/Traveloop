@@ -49,7 +49,7 @@ const Destinations= ()=>{
             <div className="destination-info">
               <h3>{place.name}</h3>
               <p>{place.description}</p>
-              <button onClick={()=> navigate(`/destination/${place._id}`)}>Explore More</button>
+              <button onClick={()=> navigate(`/destination/${place.slug}`)}>Explore More</button>
             </div>
           </div>
          </div>
