@@ -464,7 +464,7 @@ const SingleDestination= async(req,res)=>{
   try{
 
     const destination= await DestinationSchema.findOne({
-      slug: req.params.slug,
+      slug: { $regex: new RegExp(`^${req.params.slug}$`, "i") },
       isActive: true
     })
 
