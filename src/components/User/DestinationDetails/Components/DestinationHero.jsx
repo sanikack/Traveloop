@@ -5,7 +5,7 @@ const DestinationHero= ({destination})=>{
     if(!destination) return null
 
     const HeroImage= destination.image && destination.image.length > 0 ?
-    destination.image[0] : ""
+    destination.image : ""
 
     const imageUrl= HeroImage && HeroImage.startsWith("http")
     ? HeroImage : `${process.env.REACT_APP_API_URL}/uplods/${HeroImage}`;

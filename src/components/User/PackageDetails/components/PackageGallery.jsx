@@ -15,7 +15,7 @@ const PackageGallery = ({ images = [] }) => {
           <div className="gallery-img" key={i}>
 
             <img
-            src={`${process.env.REACT_APP_API_URL}/uploads/${img}`}
+            src={img && (img.startsWith("http")? img : `${process.env.REACT_APP_API_URL}/uploads/${img}`)}
             alt="package"
           />
 

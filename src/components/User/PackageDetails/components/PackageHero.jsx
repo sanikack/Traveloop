@@ -2,11 +2,16 @@ import React from "react";
 import "../PackageDetails.scss"
 
 const PackageHero = ({ pkg }) => {
+  const imageUrl = pkg.image ? pkg.image.startsWith("http")? pkg.image :
+  `${process.env.REACT_APP_API_URL}/uploads/${pkg.image}` : "";
+
+
+  
   return (
     <section
       className="package-hero"
       style={{
-        backgroundImage: `url(${process.env.REACT_APP_API_URL}/uploads/${pkg.image})`
+        backgroundImage: `url(${imageUrl})`
       }}
     >
       <div className="overlay">
