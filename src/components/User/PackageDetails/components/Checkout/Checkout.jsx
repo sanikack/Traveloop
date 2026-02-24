@@ -138,7 +138,8 @@ const Checkout = () => {
       <div className="checkout-grid">
         {/* LEFT – Package Summary */}
         <div className="summary-card">
-          {Package.image ? (<img src={`${process.env.REACT_APP_API_URL}/uploads/${Package.image}`} alt={Package.title}/>)
+          {Package.image ? (<img src={Package.image? (Package.image.startsWith("http")? Package.image :
+          `${process.env.REACT_APP_API_URL}/uploads/${Package.image}`) : ""} alt={Package.title}/>)
           : "No image"}  
 
           <div className="summary-content">

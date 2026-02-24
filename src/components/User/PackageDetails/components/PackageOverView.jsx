@@ -10,7 +10,7 @@ const PackageOverview = ({ pkg }) => {
       <div className="overview-grid">
         <div><b>Category:</b>{pkg.category?.name}</div>
         <div><b>Location:</b>{pkg.location}</div>
-        <div><b>Duration:</b>{pkg.days}D / {pkg.night}N</div>
+        <div><b>Duration:</b>{pkg.days}D / {pkg.nights}N</div>
       </div>
     </section>
   );

@@ -44,7 +44,7 @@ const CategryPackages= ({packages})=>{
             <div className="grid">
                 {packages.map((pkg)=>(
                     <div className="package-cards" key={pkg._id}>
-                        <img src={`${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`} 
+                        <img src={pkg.image? (pkg.image.startsWith("http")? pkg.image : `${process.env.REACT_APP_API_URL}/uploads/${pkg.image}`): ""} 
                         alt={pkg.title} className="bg-img" />
 
                         <div className="overlay"></div>
