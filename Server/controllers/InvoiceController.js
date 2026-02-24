@@ -1,4 +1,4 @@
-const puppeteer= require("puppeteer");
+const puppeteer= require("puppeteer-core");
 const ejs= require("ejs");
 const path = require("path");
 const BookingSchema= require("../models/BookingSchema");
@@ -38,8 +38,14 @@ const DownloadInvoice= async (req,res)=>{
     const html= await ejs.renderFile(TempPath, {booking});
 
     // best for windows and chrome
-    const browser = await puppeteer.launch({ headless:"new", 
-      args:["--no-sandbox", "--disable-setuid-sandbox"]
+    const browser = await puppeteer.launch({ 
+      executablePath: "/usr/bin/chromium-browser",
+      headless:"new", 
+      args:["--no-sandbox", 
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      ]
      });
 
     const page = await browser.newPage();
