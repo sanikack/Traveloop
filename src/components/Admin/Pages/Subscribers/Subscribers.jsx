@@ -12,7 +12,9 @@ const Subscribers= ()=>{
 
     const fetchSubscribers= async ()=>{
         
-            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/subscribe`);
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/subscribe`,{
+                credentials: "include"
+            });
             const data= await res.json();
 
                 setSubscribers(data.subscribers)

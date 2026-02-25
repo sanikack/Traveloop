@@ -24,7 +24,9 @@ const Bookings = () => {
 
   const fetchBookings= async ()=>{
     try{
-    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/bookings`)
+    const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/bookings`,{
+      credentials: "include"
+    })
     const data= await res.json();
 
       if(data.success){

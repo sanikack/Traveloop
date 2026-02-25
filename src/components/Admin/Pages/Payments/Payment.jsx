@@ -20,7 +20,9 @@ const Payment = () => {
 
     const fetchPayments= async()=>{
         try{
-            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/payment`);
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/payment`,{
+                credentials: "include"
+            });
         const data= await res.json();
 
         if(res.ok){

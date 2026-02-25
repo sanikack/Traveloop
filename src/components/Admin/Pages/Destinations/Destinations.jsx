@@ -22,7 +22,9 @@ const Destination = () => {
 
   const fetchDestinations= async ()=>{
   try{
-      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination`);
+      const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination`,{
+        credentials: "include"
+      });
     const data= await res.json();
 
     if(!res.ok){

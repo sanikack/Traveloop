@@ -12,7 +12,9 @@ const Messages= ()=>{
 
 
     const fetchMessages= async ()=>{
-        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/messages`)
+        const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/messages`,{
+            credentials: "include"
+        })
         const data= await res.json();
 
         setMessage(data.messages);

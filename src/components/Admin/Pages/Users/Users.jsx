@@ -24,7 +24,9 @@ const Users= () => {
 
     const fetchUsers= async()=>{
         try{
-            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user`)
+            const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user`,{
+                credentials: "include"
+            })
             const data= await res.json();
 
             if(!res.ok){
