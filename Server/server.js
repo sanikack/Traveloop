@@ -61,17 +61,17 @@ app.get("/home", (req,res)=>{
 Database()
 
 //*****ADMIN SIDE *****//
-app.use("/api/admin/auth", AdminAuthRoute )
-app.use("/api/admin/categories", CategoryRoutes)
-app.use("/api/admin/destination", DestinationRoutes)
-app.use("/api/admin/packages", PackageRoute)
-app.use("/api/admin/user", UserRoutes)
-app.use("/api/admin/bookings", BookingRoute)
-app.use("/api/admin/payment", PaymentsRoutes )
-app.use("/api/admin/subscribe", SubscribeRouter )
-app.use("/api/admin/messages", MessageRoute )
-app.use("/api/admin/dashboard", DashboardRoute )
-app.use("/api/admin/reviews", AdminReviewRoutes )
+app.use("/api/admin/auth", AdminAuth, AdminAuthRoute )
+app.use("/api/admin/categories", AdminAuth, CategoryRoutes)
+app.use("/api/admin/destination", AdminAuth, DestinationRoutes)
+app.use("/api/admin/packages", AdminAuth, PackageRoute)
+app.use("/api/admin/user", AdminAuth, UserRoutes)
+app.use("/api/admin/bookings", AdminAuth, BookingRoute)
+app.use("/api/admin/payment", AdminAuth, PaymentsRoutes )
+app.use("/api/admin/subscribe", AdminAuth, SubscribeRouter )
+app.use("/api/admin/messages", AdminAuth, MessageRoute )
+app.use("/api/admin/dashboard", AdminAuth, DashboardRoute )
+app.use("/api/admin/reviews", AdminAuth, AdminReviewRoutes )
 
 
 
