@@ -61,7 +61,7 @@ app.get("/home", (req,res)=>{
 Database()
 
 //*****ADMIN SIDE *****//
-app.use("/api/admin/auth", AdminAuth, AdminAuthRoute )
+app.use("/api/admin/auth", AdminAuthRoute )
 app.use("/api/admin/categories", AdminAuth, CategoryRoutes)
 app.use("/api/admin/destination", AdminAuth, DestinationRoutes)
 app.use("/api/admin/packages", AdminAuth, PackageRoute)
