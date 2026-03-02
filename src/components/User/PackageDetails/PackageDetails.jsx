@@ -52,7 +52,7 @@ const PackageDetails = () => {
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
