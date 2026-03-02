@@ -1,3 +1,6 @@
+body{
+  overflow-x: hidden;
+}
 
 
 .package-container {
@@ -290,3 +293,60 @@
   }
 }
 
+
+
+@media (max-width: 990px){
+  .package-container{
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .right{
+    margin-top: 40px;
+  }
+
+  .cta-card{
+    position: relative;
+    top: 0;
+  }
+
+  .overview-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .inclusions {
+    grid-template-columns: 1fr;
+  }
+
+  .package-hero{
+    height: 70vh;
+
+    .overlay{
+      padding: 40px 20px;
+    }
+
+    .hero-content h1{
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: 576px){
+  .overview-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .package-hero{
+    height: 60vh;
+
+    .hero-content h1{
+      font-size: 24px;
+    }
+  }
+
+  .pkg-box{
+    margin-top: -70px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+}
