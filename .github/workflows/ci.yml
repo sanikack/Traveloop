@@ -21,7 +21,7 @@ run: |
  npm install
 
 
-- name: Build React App
+ - name: Build React App
 run: |
  cd practice
  npm run build
