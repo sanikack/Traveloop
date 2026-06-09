@@ -1,0 +1,30 @@
+name: frontend CI
+
+on:
+ push:
+  branches:
+   - main
+
+jobs:
+ build:
+ runs-on: ubuntu-latest
+
+steps:
+ - uses: actions/checkout@v4
+
+ - uses: actions/setup-node@v4
+   with:
+    node-verson: 22
+
+ - name: Install Dependencies
+run: |
+ cd practice
+ npm Install
+
+
+- name: Build React App
+run: |
+ cd practice
+ npm run build
+
+
