@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Contact.scss"
 import Swal from "sweetalert2";
-import { data, useNavigate } from "react-router-dom";
+import { data } from "react-router-dom";
 
 
 const Contact= ()=>{

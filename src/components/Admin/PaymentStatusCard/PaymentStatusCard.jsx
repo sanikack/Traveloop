@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./PaymentStatusCard.scss";
-import { CheckCircle, Clock, Terminal, XCircle } from "lucide-react";
+import { CheckCircle, Clock, XCircle } from "lucide-react";
 
 const PaymentStatusCard = () => {
 

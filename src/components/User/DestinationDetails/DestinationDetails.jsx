@@ -7,7 +7,7 @@ import DestinationPackage from "./Components/DestinationPackages";
 import DestinationSpecialities from "./Components/DestinationSpecialities";
 
 
-const DestinationDetails= ({})=>{
+const DestinationDetails= ()=>{
   const {slug}= useParams(); //slug from URL
   const [destination, setDestination]= useState(null)
   const [packages, setPackages]= useState([]);

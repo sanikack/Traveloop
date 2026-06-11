@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditUser.scss";
 import Swal from "sweetalert2";
-import { use } from "react";
-
 
 const EditUser = () => {
   const { id } = useParams();

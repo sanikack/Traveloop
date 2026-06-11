@@ -61,7 +61,7 @@ const Messages= ()=>{
 
                           const saveReply= async()=>{
                             if(!replyText.trim()){
-                                return showAlert("error", data.message)
+                                return showAlert("error", "Replay cannot be empty")
                             }
 
                             const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/messages/reply/${selectedMessage._id}`,{

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../Navber/demo";
-import Footer from "../footer/footer";
 import PackageHero from "./components/PackageHero";
 import PackageOverview from "./components/PackageOverView";
 import PackageGallery from "./components/PackageGallery";
