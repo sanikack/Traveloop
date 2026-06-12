@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./EditCategory.scss";
 import Swal from "sweetalert2";
@@ -33,7 +33,7 @@ const EditCategory = () => {
   };
   
 
-  const fetchCategories= async ()=>{
+  const fetchCategories= useCallback( async ()=>{
     try{
       const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories/${id}`);
 
@@ -61,11 +61,12 @@ const EditCategory = () => {
       console.error(err);
       console.log(err);
     }
-  }
+  },
+  [id])
 
   useEffect(()=>{
     fetchCategories()
-  },[id])
+  },[fetchCategories])
 
 
   //******* UPDATE CATEGORY ********/

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./EditPackage.scss"
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -42,7 +42,7 @@ const EditPackages= ()=>{
         })
     }
 
-        const fetchPackages= async ()=>{
+        const fetchPackages= useCallback( async ()=>{
             try{
                 const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages/${id}`,{
                     credentials: "include"
@@ -76,12 +76,13 @@ const EditPackages= ()=>{
         catch(err){
             showAlert("Error", err.message)
       }
-     }
+     },
+    [id])
 
 
       useEffect(()=>{
         fetchPackages()
-     },[id])
+     },[fetchPackages])
 
 
 

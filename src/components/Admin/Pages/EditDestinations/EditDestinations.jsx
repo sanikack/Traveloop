@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditDestinations.scss";
 import Swal from "sweetalert2";
@@ -27,7 +27,7 @@ const EditDestination = () => {
   })
    }
 
-   const fetchDestination= async ()=>{
+   const fetchDestination= useCallback( async ()=>{
     try{
       const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination/${id}`);
       const data= await res.json();
@@ -46,11 +46,12 @@ const EditDestination = () => {
     catch(err){
       showAlert("error", err.message)
     }
-   }
+   },
+   [id])
 
    useEffect(()=>{
     fetchDestination()
-   },[id]);
+   },[fetchDestination]);
 
 
    //************UPDATE SECTION***********/

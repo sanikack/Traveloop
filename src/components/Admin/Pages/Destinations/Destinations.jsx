@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {Plus, Pencil, Trash} from "lucide-react"
 import "./Destinations.scss"
 import { Link } from "react-router-dom";
@@ -20,7 +20,7 @@ const Destination = () => {
     })
   }
 
-  const fetchDestinations= async ()=>{
+  const fetchDestinations= useCallback( async ()=>{
   try{
       const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/destination`,{
         credentials: "include"
@@ -36,11 +36,12 @@ const Destination = () => {
   catch(err){
     showAlert("error", err.message)
   }
-  }
+  },
+  []);
 
   useEffect(()=>{
     fetchDestinations()
-  },[])
+  },[fetchDestinations])
 
 
   //************DELETE SECTION************/

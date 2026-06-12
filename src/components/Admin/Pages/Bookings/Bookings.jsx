@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./Bookings.scss";
 import Swal from "sweetalert2";
 import { Pencil, Trash2} from "lucide-react" 
@@ -22,7 +22,7 @@ const Bookings = () => {
     })
   };
 
-  const fetchBookings= async ()=>{
+  const fetchBookings= useCallback(async ()=>{
     try{
     const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/bookings`,{
       credentials: "include"
@@ -37,12 +37,13 @@ const Bookings = () => {
     catch(err){
       showAlert("error", err.message)
     }
-  }
+  },
+[])
 
 
   useEffect(()=>{
     fetchBookings()
-  },[])
+  },[fetchBookings])
 
 
   const handleDelete= async(id)=>{

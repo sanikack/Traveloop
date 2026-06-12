@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditUser.scss";
 import Swal from "sweetalert2";
@@ -31,7 +31,7 @@ const EditUser = () => {
     setFormData({...formData, [e.target.name] : e.target.value})
   }
 
-  const fetchUsers= async()=>{
+  const fetchUsers= useCallback( async()=>{
     try{
       const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user/${id}`);
       const data= await res.json();
@@ -52,11 +52,12 @@ const EditUser = () => {
     catch(err){
       showAlert("error", err.message)
     }
-  }
+  },
+  [id])
 
   useEffect(()=>{
     fetchUsers()
-  },[id])
+  },[fetchUsers])
 
   
   const handleSubmit= async (e)=>{

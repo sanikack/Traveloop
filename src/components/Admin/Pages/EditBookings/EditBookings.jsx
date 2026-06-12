@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./EditBookings.scss"
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -24,7 +24,7 @@ const EditBookings= ()=>{
     }
 
         //fetch single bookings
-        const fetchBookings= async()=>{
+        const fetchBookings= useCallback( async()=>{
             try{
                 const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/bookings/${id}`);
                 const data= await res.json();
@@ -39,11 +39,12 @@ const EditBookings= ()=>{
             catch(err){
                 showAlert("error", err.message)
             }
-        }
+        },
+    []);
 
         useEffect(()=>{
             fetchBookings()
-        },[])
+        },[fetchBookings])
 
 
         // ✅ PREVENT NULL CRASH

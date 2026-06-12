@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import {Pencil, Plus, Trash2} from "lucide-react";
@@ -22,7 +22,7 @@ const AdminPackage= ()=>{
     })
   }
 
-  const fetchPackages= async ()=>{
+  const fetchPackages= useCallback( async ()=>{
     try{
       const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/packages`,{
         credentials:"include"
@@ -40,11 +40,12 @@ const AdminPackage= ()=>{
     catch (err) {
       showAlert("error", err.message);
     }
-  }
+  },
+  )
 
   useEffect(()=>{
     fetchPackages()
-  },[])
+  },[fetchPackages])
 
 
 
