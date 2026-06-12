@@ -15,7 +15,7 @@ const CategoryDetails= ()=>{
 
     useEffect(()=>{
         fetchcategories()
-    },[slug]);
+    },[fetchcategories]);
 
     const fetchcategories= useCallback( async ()=>{
         try{
@@ -35,9 +35,9 @@ const CategoryDetails= ()=>{
             setLoading(false)
         }
     },
-    []);
+    [slug]);
 
-    
+
     if(loading) return <div className="loading">Loading...</div>
     if(!category) return <div className="loading">Category not found</div>
 

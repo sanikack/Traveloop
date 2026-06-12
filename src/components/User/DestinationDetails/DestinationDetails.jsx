@@ -13,11 +13,6 @@ const DestinationDetails= ()=>{
   const [packages, setPackages]= useState([]);
 
 
-  useEffect(()=>{
-    fetchDestination()
-  },[fetchDestination]);
-
-
   const fetchDestination= useCallback( async()=>{
     try{
       const res= await fetch(`${process.env.REACT_APP_API_URL}/api/destination/${slug}`);
@@ -34,6 +29,12 @@ const DestinationDetails= ()=>{
     }
   },
   [slug]);
+
+  
+    useEffect(()=>{
+    fetchDestination()
+  },[fetchDestination]);
+
 
     if(!destination) return <div className="loading">Destination not found</div>
 

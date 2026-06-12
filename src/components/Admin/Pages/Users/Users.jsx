@@ -43,7 +43,7 @@ const Users= () => {
 
     useEffect(()=>{
         fetchUsers()
-    },[])
+    },[fetchUsers])
 
 
     //delete user
