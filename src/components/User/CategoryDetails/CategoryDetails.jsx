@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import CategoryHero from "./components/categoryHero";
 import CategorySummary  from "./components/categorySummary"
@@ -17,7 +17,7 @@ const CategoryDetails= ()=>{
         fetchcategories()
     },[slug]);
 
-    const fetchcategories= async ()=>{
+    const fetchcategories= useCallback( async ()=>{
         try{
             const res= await fetch(`${process.env.REACT_APP_API_URL}/api/category/${slug}`)
             const data= await res.json();
@@ -34,7 +34,10 @@ const CategoryDetails= ()=>{
         finally{
             setLoading(false)
         }
-    }
+    },
+    []);
+
+    
     if(loading) return <div className="loading">Loading...</div>
     if(!category) return <div className="loading">Category not found</div>
 

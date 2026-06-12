@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Search, Bell } from "lucide-react";
 import "./topbar.scss"
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ const Topbar = ()=>{
     const navigate= useNavigate()
     const profileRef= useRef();
 
-    const fetchSearch= async()=>{
+    const fetchSearch= useCallback( async()=>{
         try{
             const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/dashboard/search?q=${query}`,{
                 credentials:"include"
@@ -30,7 +30,8 @@ const Topbar = ()=>{
             console.error(err);
             
         }
-    };
+    },
+    [])
 
     useEffect(()=>{
         fetchNotifications();

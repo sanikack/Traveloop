@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState } from "react";
 import { Menu, X, User, LogOut, Settings, BookIcon } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -108,7 +107,7 @@ const Navbar = () => {
 
           <div className="navbar__logo">
             <Link to="/">
-              <img src="/images/logos/Logo.png" className="navbar__logo-img" />
+              <img src="/images/logos/Logo.png" className="navbar__logo-img" alt="traveloop logo" />
             </Link>
             <h2 className="web-name">TraveLoop</h2>
           </div>

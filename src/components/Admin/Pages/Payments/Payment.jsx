@@ -33,7 +33,7 @@ const Payment = () => {
       showAlert("error", err.message)
     }
     },
-)
+[])
 
 
     useEffect(()=>{

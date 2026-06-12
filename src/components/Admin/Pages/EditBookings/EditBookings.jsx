@@ -40,7 +40,7 @@ const EditBookings= ()=>{
                 showAlert("error", err.message)
             }
         },
-    []);
+    [id]);
 
         useEffect(()=>{
             fetchBookings()

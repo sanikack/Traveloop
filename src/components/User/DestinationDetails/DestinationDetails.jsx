@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import DestinationHero from "./Components/DestinationHero";
 import { useParams } from "react-router-dom";
 import "./DestinationDetails.scss"
@@ -15,10 +15,10 @@ const DestinationDetails= ()=>{
 
   useEffect(()=>{
     fetchDestination()
-  },[slug]);
+  },[fetchDestination]);
 
 
-  const fetchDestination= async()=>{
+  const fetchDestination= useCallback( async()=>{
     try{
       const res= await fetch(`${process.env.REACT_APP_API_URL}/api/destination/${slug}`);
       const data= await res.json();
@@ -32,7 +32,8 @@ const DestinationDetails= ()=>{
       console.error(err);
       
     }
-  }
+  },
+  [slug]);
 
     if(!destination) return <div className="loading">Destination not found</div>
 

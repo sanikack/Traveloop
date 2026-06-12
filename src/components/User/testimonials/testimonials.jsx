@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./testimonials.scss"
 import { Star } from "lucide-react";
 
@@ -30,11 +30,11 @@ const Testimonials= ()=>{
         }
     }
 
-    const nextslide= ()=>{
+    const nextslide= useCallback( ()=>{
         setindex((pre)=>
-            (pre+1)% review.length
-        )
-    }
+            (pre+1)% review.length)
+    },
+[review.length])
 
     const preslide= ()=>{
         setindex((pre)=>
@@ -54,10 +54,10 @@ const Testimonials= ()=>{
             },3000);
 
             return ()=> clearInterval(timer)
-        },[index, review.length]);
+        },[nextslide, review.length]);
 
 
-        {/* pagination function */}
+        // {/* pagination function */}
         const Pagination= (i)=> setindex(i);
 
     return(

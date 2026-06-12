@@ -41,7 +41,7 @@ const AdminPackage= ()=>{
       showAlert("error", err.message);
     }
   },
-  )
+  [])
 
   useEffect(()=>{
     fetchPackages()

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import "./Users.scss"
@@ -22,7 +22,7 @@ const Users= () => {
 
     //fetch users
 
-    const fetchUsers= async()=>{
+    const fetchUsers= useCallback( async()=>{
         try{
             const res= await fetch(`${process.env.REACT_APP_API_URL}/api/admin/user`,{
                 credentials: "include"
@@ -38,7 +38,8 @@ const Users= () => {
         catch(err){
             showAlert("error", err.message)
         }
-    };
+    },
+    []);
 
     useEffect(()=>{
         fetchUsers()
