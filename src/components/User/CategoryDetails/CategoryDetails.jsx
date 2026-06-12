@@ -13,9 +13,6 @@ const CategoryDetails= ()=>{
     const [packages, setPackages]= useState([])
     const [loading, setLoading]= useState(true)
 
-    useEffect(()=>{
-        fetchcategories()
-    },[fetchcategories]);
 
     const fetchcategories= useCallback( async ()=>{
         try{
@@ -36,6 +33,11 @@ const CategoryDetails= ()=>{
         }
     },
     [slug]);
+
+    
+     useEffect(()=>{
+        fetchcategories()
+    },[fetchcategories]);
 
 
     if(loading) return <div className="loading">Loading...</div>
