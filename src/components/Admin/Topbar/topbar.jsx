@@ -103,7 +103,7 @@ const Topbar = ()=>{
         }, 400);
 
         return()=> clearTimeout(timer)
-    },[fetchSearch]);
+    },[fetchSearch,query.length]);
 
     //NAVIGATE HELPER
     const go= (path)=>{
